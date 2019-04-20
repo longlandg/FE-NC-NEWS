@@ -37,12 +37,10 @@ class App extends Component {
   }
   userLoginFunc = loggedUserName => {
     this.setState({ userName: loggedUserName, loggedIn: true });
-    // SaveState(this.state.userName, this.state.loggedIn);
   };
   logOutFunc = () => {
     this.setState({ userName: null, loggedIn: false });
     navigate(`/`);
-    // ClearState(null, false);
   };
 }
 
