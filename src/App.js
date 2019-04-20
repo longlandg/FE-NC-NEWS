@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Router } from "@reach/router";
 import Title from "./components/PageElements/Title.jsx";
 import NavBar from "./components/PageElements/NavBar";
+import { navigate } from "@reach/router";
 
 import SignInPageView from "./components/PageViews/SignInPageView";
 import UserPageView from "./components/PageViews/UserPageView";
@@ -18,7 +19,7 @@ class App extends Component {
     return (
       <div className="App">
         <Title userName={this.state.userName} />
-        <NavBar userName={this.state.userName} />
+        <NavBar userName={this.state.userName} logOutFunc={this.logOutFunc} />
         <Router>
           <SignInPageView
             path="/signin"
@@ -40,6 +41,7 @@ class App extends Component {
   };
   logOutFunc = () => {
     this.setState({ userName: null, loggedIn: false });
+    navigate(`/`);
     // ClearState(null, false);
   };
 }

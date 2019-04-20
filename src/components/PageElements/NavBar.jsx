@@ -17,7 +17,11 @@ const NavBar = props => {
         </Link>
       )}
       {props.userName ? (
-        <button className="LogOut" type="button">
+        <button
+          className="LogOut"
+          type="button"
+          onClick={() => props.logOutFunc()}
+        >
           LOG OUT
         </button>
       ) : (
