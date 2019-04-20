@@ -11,7 +11,7 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    userName: "george",
+    userName: null,
     loggedIn: false
   };
   render() {
@@ -20,7 +20,11 @@ class App extends Component {
         <Title userName={this.state.userName} />
         <NavBar userName={this.state.userName} />
         <Router>
-          <SignInPageView path="/signin" userName={this.state.userName} />
+          <SignInPageView
+            path="/signin"
+            userLoginFunc={this.userLoginFunc}
+            userName={this.state.userName}
+          />
           <UserPageView
             path="/users/:username"
             userName={this.state.userName}
@@ -30,6 +34,14 @@ class App extends Component {
       </div>
     );
   }
+  userLoginFunc = loggedUserName => {
+    this.setState({ userName: loggedUserName, loggedIn: true });
+    // SaveState(this.state.userName, this.state.loggedIn);
+  };
+  logOutFunc = () => {
+    this.setState({ userName: null, loggedIn: false });
+    // ClearState(null, false);
+  };
 }
 
 export default App;
