@@ -4,6 +4,7 @@ import { Link } from "@reach/router";
 import { fetchUserInfo, fetchUserArticles } from "../Functions/apis";
 
 import UserInfoCard from "../PageElements/UserInfoCard";
+import UserArticlesCard from "../PageElements/UserArticlesCard";
 
 class UserPageView extends Component {
   state = {
@@ -30,6 +31,12 @@ class UserPageView extends Component {
           <div>
             <h1>this is the user page view</h1>
             <UserInfoCard userInfo={this.state.userInfo} />
+          </div>
+        )}
+        {this.state.userInfo && (
+          <div>
+            <h1>this is the user page view</h1>
+            <UserArticlesCard userArticles={this.state.userArticles} />
           </div>
         )}
       </div>
