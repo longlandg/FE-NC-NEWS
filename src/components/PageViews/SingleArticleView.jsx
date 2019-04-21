@@ -10,6 +10,7 @@ import {
 } from "../Functions/apis";
 
 import SingleArticleCard from "../PageElements/SingleArticleCard";
+import AllCommentsCard from "../PageElements/AllCommentsCard";
 
 class SingleArticleView extends Component {
   state = {
@@ -24,11 +25,12 @@ class SingleArticleView extends Component {
   render() {
     return (
       <div>
-        {this.state.individualArticle && (
+        {this.state.individualArticle && this.state.allComments && (
           <div className="temp">
             <SingleArticleCard
               individualArticle={this.state.individualArticle}
             />
+            <AllCommentsCard allComments={this.state.allComments} />
           </div>
         )}
       </div>
