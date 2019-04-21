@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
 
-const SingleArticleCard = props => {
+const AllCommentsCard = props => {
   return (
     <div>
       {props.individualArticle && (
@@ -23,4 +23,4 @@ const SingleArticleCard = props => {
   );
 };
 
-export default SingleArticleCard;
+export default AllCommentsCard;

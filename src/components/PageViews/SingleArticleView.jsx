@@ -19,8 +19,22 @@ class SingleArticleView extends Component {
     CommentVoteChange: 0
   };
 
-  componentDidMount = props => {
-    console.log(props);
+  componentDidUpdate() {}
+
+  render() {
+    return (
+      <div>
+        {this.state.individualArticle && (
+          <div className="temp">
+            <SingleArticleCard
+              individualArticle={this.state.individualArticle}
+            />
+          </div>
+        )}
+      </div>
+    );
+  }
+  componentDidMount = () => {
     Promise.all([
       fetchSingleArticle(this.props.article_id),
       fetchAllCommentsByArticleId(this.props.article_id)
@@ -29,15 +43,6 @@ class SingleArticleView extends Component {
     });
     console.log(localStorage);
   };
-  componentDidUpdate() {}
-
-  render() {
-    return (
-      <div>
-        <SingleArticleCard individualArticle={this.state.individualArticle} />
-      </div>
-    );
-  }
 }
 
 export default SingleArticleView;
