@@ -38,3 +38,31 @@ export const fetchUserArticles = async username => {
   // console.log("hello im in the userArticles function", data.articles);
   return data.articles;
 };
+
+export const deleteComment = comments_id => {
+  return Axios.delete(
+    `https://longlandncknews.herokuapp.com/api/comments/${comments_id}`
+  );
+};
+
+export const updateArticleVotes = (direction, article_id) => {
+  return Axios.patch(
+    `https://longlandncknews.herokuapp.com/api/articles/${article_id}`,
+    { inc_votes: direction }
+  );
+};
+
+export const updateCommentsVotes = (direction, comments_id) => {
+  return Axios.patch(
+    `https://longlandncknews.herokuapp.com/api/comments/${comments_id}`,
+    { inc_votes: direction }
+  );
+};
+
+export const fetchAllCommentsByArticleId = async article_id => {
+  const { data, status } = await Axios.get(
+    `https://longlandncknews.herokuapp.com/api/articles/${article_id}/comments`
+  );
+
+  return data.comments;
+};
