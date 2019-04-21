@@ -7,6 +7,7 @@ import { navigate } from "@reach/router";
 import SignInPageView from "./components/PageViews/SignInPageView";
 import UserPageView from "./components/PageViews/UserPageView";
 import HomePageView from "./components/PageViews/HomePageView";
+// import SingleArticleView from "./components/PageViews/SingleArticleView";
 
 import "./App.css";
 
@@ -31,6 +32,11 @@ class App extends Component {
             userName={this.state.userName}
           />
           <HomePageView path="/" userName={this.state.userName} />
+          {/* <SingleArticleView
+            loggedIn={this.state.loggedIn}
+            userName={this.state.userName}
+            path="/articles/:article_id"
+          /> */}
         </Router>
       </div>
     );
