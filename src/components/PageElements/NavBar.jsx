@@ -11,11 +11,19 @@ const NavBar = props => {
       </Link>
       <div className="RightHandSideNavBar">
         {props.userName && (
-          <Link to={`/users/${props.userName}`}>
-            <button className="UserPage" type="button">
-              USER PAGE
-            </button>
-          </Link>
+          <>
+            <Link to={`/users/${props.userName}`}>
+              <button className="UserPage" type="button">
+                USER PAGE
+              </button>
+            </Link>
+            <Link to={`/topics/createtopic`}>
+              <button className="newTopicButton">create new topic</button>
+            </Link>
+            <Link to={`/articles/postarticle`}>
+              <button className="newArticleButton">write new article</button>
+            </Link>
+          </>
         )}
         {props.userName ? (
           <button

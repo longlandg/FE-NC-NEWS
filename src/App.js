@@ -8,6 +8,8 @@ import SignInPageView from "./components/PageViews/SignInPageView";
 import UserPageView from "./components/PageViews/UserPageView";
 import HomePageView from "./components/PageViews/HomePageView";
 import SingleArticleView from "./components/PageViews/SingleArticleView";
+import CreateTopicView from "./components/PageViews/CreateTopicView";
+import PostArticleView from "./components/PageViews/PostArticleView";
 
 import "./App.css";
 
@@ -34,11 +36,7 @@ class App extends Component {
               path="/users/:username"
               userName={this.state.userName}
             />
-            <HomePageView
-              className="george"
-              path="/"
-              userName={this.state.userName}
-            />
+            <HomePageView path="/" userName={this.state.userName} />
             {/* <SingleArticleView
             loggedIn={this.state.loggedIn}
             userName={this.state.userName}
@@ -48,6 +46,16 @@ class App extends Component {
               loggedIn={this.state.loggedIn}
               userName={this.state.userName}
               path="/articles/:article_id"
+            />
+            <CreateTopicView
+              article_id={this.state.article_id}
+              userName={this.state.userName}
+              path="/topics/createtopic"
+            />
+            <PostArticleView
+              loggedIn={this.state.loggedIn}
+              userName={this.state.userName}
+              path="/articles/postarticle/"
             />
           </Router>
         </div>

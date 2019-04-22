@@ -66,3 +66,11 @@ export const fetchAllCommentsByArticleId = async article_id => {
 
   return data.comments;
 };
+
+export const postTopic = newtopic => {
+  // console.log(newtopic);
+  return Axios.post(
+    `https://longlandncknews.herokuapp.com/api/topics`,
+    newtopic
+  );
+};

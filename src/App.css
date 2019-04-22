@@ -2,8 +2,8 @@
   justify-self: center;
   align-self: center;
   align-content: center;
-
-  max-width: 900px;
+  margin: 0px;
+  width: 900px;
   height: 100vh;
   font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
 }
@@ -112,19 +112,21 @@
 }
 
 .UserPageView {
-  background-color: blue;
   grid-area: bottom;
   display: grid;
   grid-template: 1fr / 1fr;
   grid-template-areas:
     "topUserPageView"
     "bottomUserPageView";
-  grid-template-rows: 300px 1fr;
+  grid-template-rows: 400px 1fr;
 }
 .UserArticles {
+  background-color: greenyellow;
+  border: solid;
   grid-area: bottomUserPageView;
 }
 .UserInfoCard {
+  background-color: blue;
   border: solid;
   grid-area: topUserPageView;
   display: grid;
@@ -156,8 +158,7 @@
   grid-area: bottomrightUserInfoCard;
 }
 
-.UserPageView {
-  background-color: blue;
+/* .UserPageView {
   grid-area: bottom;
   display: grid;
   grid-template: 1fr / 1fr;
@@ -165,4 +166,4 @@
     "topUserPageView"
     "bottomUserPageView";
   grid-template-rows: 300px 1fr;
-}
+} */
