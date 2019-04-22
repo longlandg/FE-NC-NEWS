@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
+import { Link } from "@reach/router";
 
 const UserInfoCard = props => {
   return (
@@ -18,13 +19,15 @@ const UserInfoCard = props => {
               } = article;
               return (
                 <li key={article_id} className="individualArticleCards">
-                  <h4 className="articletitle">{title} </h4>
-                  <p className="articledetails">{topic} </p>
-                  <p className="articledetails">Date Posted: {created_at}</p>
-                  <p className="articledetails">
-                    Number of Comments: {comment_count}{" "}
-                  </p>
-                  <p className="articledetails">Votes: {votes}</p>
+                  <Link to={`/articles/${article_id}`}>
+                    <h4 className="articletitle">{title} </h4>
+                    <p className="articledetails">{topic} </p>
+                    <p className="articledetails">Date Posted: {created_at}</p>
+                    <p className="articledetails">
+                      Number of Comments: {comment_count}{" "}
+                    </p>
+                    <p className="articledetails">Votes: {votes}</p>
+                  </Link>
                 </li>
               );
             })}

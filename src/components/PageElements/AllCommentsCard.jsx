@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
+import { Link } from "@reach/router";
 
 const AllCommentsCard = props => {
   return (

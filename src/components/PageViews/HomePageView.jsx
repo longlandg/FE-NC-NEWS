@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import { fetchAllArticles } from "../Functions/apis";
 
+import SortBySelector from "../PageElements/SortBySelector";
 import AllArticles from "../PageElements/AllArticles";
 
 class HomePageView extends Component {
@@ -14,11 +15,19 @@ class HomePageView extends Component {
 
   render() {
     return (
-      <div>
+      <div className="homeView">
+        <div className="SortBySelector">
+          <SortBySelector
+            allArticles={this.state.allArticles}
+            changeSorting={this.changeSorting}
+          />
+        </div>
         {this.state.allArticles && (
+          // <>
           <div className="articlecard">
             <AllArticles allArticles={this.state.allArticles} />
           </div>
+          // </>
         )}
         <h1>im in the home page</h1>
       </div>
@@ -31,6 +40,32 @@ class HomePageView extends Component {
       this.setState({ allArticles: articles });
       console.log(this.state.allArticles);
     });
+  };
+
+  changeSorting = event => {
+    event.preventDefault();
+    console.log(event.target.value);
+    if (event.target.value !== this.state.sortBy) {
+      this.setState({ sortBy: event.target.value });
+    }
+  };
+
+  homeFilterReset = event => {
+    event.preventDefault();
+    if (event.target.value !== this.state.sortBy) {
+      this.setState({ sortBy: event.target.value });
+    }
+  };
+
+  componentDidUpdate = (prevProps, prevState, snapshot) => {
+    if (
+      this.state.sortBy !== prevState.sortBy ||
+      prevProps.path !== this.props.path
+    ) {
+      fetchAllArticles(this.props.topic, this.state.sortBy).then(articles => {
+        this.setState({ allArticles: articles });
+      });
+    }
   };
 }
 

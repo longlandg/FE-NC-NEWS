@@ -1,33 +1,41 @@
 .App {
+  align-self: center;
+  align-content: center;
+  /* text-align: center; */
+  /* background-color: orange; */
+  max-width: 900px;
+  height: 100%;
+  font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+}
+
+.Title {
   text-align: center;
+  font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+  font-weight: 900;
+
+  color: whitesmoke;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.TitleLoggedOut {
+  font-size: 50pt;
+  background-color: #6c757d;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.TitleLoggedIn {
+  font-size: 50pt;
+  background-color: rgb(116, 48, 48);
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.NavBar {
+  background-color: #6c757d;
+  margin-top: 5px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.RightHandSideNavBar {
+  align-content: flex-end;
 }

@@ -9,28 +9,30 @@ const NavBar = props => {
           HOME
         </button>
       </Link>
-      {props.userName && (
-        <Link to={`/users/${props.userName}`}>
-          <button className="UserPage" type="button">
-            USER PAGE
+      <div className="RightHandSideNavBar">
+        {props.userName && (
+          <Link to={`/users/${props.userName}`}>
+            <button className="UserPage" type="button">
+              USER PAGE
+            </button>
+          </Link>
+        )}
+        {props.userName ? (
+          <button
+            className="LogOut"
+            type="button"
+            onClick={() => props.logOutFunc()}
+          >
+            LOG OUT
           </button>
-        </Link>
-      )}
-      {props.userName ? (
-        <button
-          className="LogOut"
-          type="button"
-          onClick={() => props.logOutFunc()}
-        >
-          LOG OUT
-        </button>
-      ) : (
-        <Link to={"/signin"}>
-          <button className="LogIn" type="button">
-            LOG IN
-          </button>
-        </Link>
-      )}
+        ) : (
+          <Link to={"/signin"}>
+            <button className="LogIn" type="button">
+              LOG IN
+            </button>
+          </Link>
+        )}
+      </div>
     </nav>
   );
 };
