@@ -18,7 +18,6 @@ class UserPageView extends Component {
       fetchUserArticles(this.props.userName)
     ]).then(([userInfo, userArticles]) => {
       this.setState({ userInfo, userArticles });
-      console.log(this.state);
     });
   };
 
@@ -27,10 +26,19 @@ class UserPageView extends Component {
   render() {
     return (
       <div className="UserPageView">
-        {this.state.userInfo && <UserInfoCard userInfo={this.state.userInfo} />}
+        {this.state.userInfo && (
+          <UserInfoCard
+            userArticles={this.state.userArticles}
+            userComments={this.state.userComments}
+            userInfo={this.state.userInfo}
+          />
+        )}
         {this.state.userInfo && (
           <div className="UserArticles">
-            <UserArticlesCard userArticles={this.state.userArticles} />
+            <UserArticlesCard
+              userArticles={this.state.userArticles}
+              userComments={this.state.userComments}
+            />
           </div>
         )}
       </div>

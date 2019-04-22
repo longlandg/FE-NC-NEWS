@@ -22,8 +22,6 @@ class SignInPageView extends Component {
   componentDidMount = () => {
     fetchAllUsers().then(users => {
       this.setState({ allUsers: users });
-      console.log(this.state.allUsers);
-      console.log("these are the props", this.props);
     });
   };
 }

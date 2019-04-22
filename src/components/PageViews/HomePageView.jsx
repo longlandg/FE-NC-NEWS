@@ -30,16 +30,14 @@ class HomePageView extends Component {
   }
 
   componentDidMount = () => {
-    console.log("i mounted");
     fetchAllArticles(this.state.filterBy, this.state.sortBy).then(articles => {
       this.setState({ allArticles: articles });
-      console.log(this.state.allArticles);
     });
   };
 
   changeSorting = event => {
     event.preventDefault();
-    console.log(event.target.value);
+
     if (event.target.value !== this.state.sortBy) {
       this.setState({ sortBy: event.target.value });
     }
