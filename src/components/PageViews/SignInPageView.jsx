@@ -10,8 +10,7 @@ class SignInPageView extends Component {
   };
   render() {
     return (
-      <div>
-        <h1>this is the sign in page view</h1>
+      <div className="SignInPage">
         <SignInForm
           allUsers={this.state.allUsers}
           userLoginFunc={this.props.userLoginFunc}

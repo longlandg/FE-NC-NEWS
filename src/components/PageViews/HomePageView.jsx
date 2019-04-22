@@ -15,7 +15,7 @@ class HomePageView extends Component {
 
   render() {
     return (
-      <div className="homeView">
+      <div className="HomeView">
         <div className="SortBySelector">
           <SortBySelector
             allArticles={this.state.allArticles}
@@ -23,13 +23,8 @@ class HomePageView extends Component {
           />
         </div>
         {this.state.allArticles && (
-          // <>
-          <div className="articlecard">
-            <AllArticles allArticles={this.state.allArticles} />
-          </div>
-          // </>
+          <AllArticles allArticles={this.state.allArticles} />
         )}
-        <h1>im in the home page</h1>
       </div>
     );
   }

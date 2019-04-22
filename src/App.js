@@ -19,30 +19,38 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Title userName={this.state.userName} />
-        <NavBar userName={this.state.userName} logOutFunc={this.logOutFunc} />
-        <Router>
-          <SignInPageView
-            path="/signin"
-            userLoginFunc={this.userLoginFunc}
-            userName={this.state.userName}
-          />
-          <UserPageView
-            path="/users/:username"
-            userName={this.state.userName}
-          />
-          <HomePageView path="/" userName={this.state.userName} />
-          {/* <SingleArticleView
+        <div className="head">
+          <Title userName={this.state.userName} />
+          <NavBar userName={this.state.userName} logOutFunc={this.logOutFunc} />
+        </div>
+        <div className="Router">
+          <Router>
+            <SignInPageView
+              path="/signin"
+              userLoginFunc={this.userLoginFunc}
+              userName={this.state.userName}
+            />
+            <UserPageView
+              path="/users/:username"
+              userName={this.state.userName}
+            />
+            <HomePageView
+              className="george"
+              path="/"
+              userName={this.state.userName}
+            />
+            {/* <SingleArticleView
             loggedIn={this.state.loggedIn}
             userName={this.state.userName}
             path="/articles/:article_id"
           /> */}
-          <SingleArticleView
-            loggedIn={this.state.loggedIn}
-            userName={this.state.userName}
-            path="/articles/:article_id"
-          />
-        </Router>
+            <SingleArticleView
+              loggedIn={this.state.loggedIn}
+              userName={this.state.userName}
+              path="/articles/:article_id"
+            />
+          </Router>
+        </div>
       </div>
     );
   }
