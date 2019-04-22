@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
-import { postTopic } from "../Functions/apis";
+import { postTopic, fetchAllTopics } from "../Functions/apis";
+import NewTopicForm from "../PageElements/NewTopicForm";
 
 class CreateTopicView extends Component {
   state = {
     slug: "",
-    description: ""
+    description: "",
+    allTopicsSlugs: ""
   };
   handleChange = event => {
-    console.log(event.target.name);
     let name = event.target.name;
     this.setState({ [name]: event.target.value });
   };
@@ -22,30 +23,25 @@ class CreateTopicView extends Component {
     });
   };
 
+  componentDidMount = () => {
+    fetchAllTopics().then(topics => {
+      const slugArray = [];
+      topics.forEach(topic => {
+        slugArray.push(topics.slug);
+        console.log(slugArray);
+      });
+      this.setState({ allTopicsSlugs: slugArray });
+    });
+  };
+
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Description:
-          <input
-            name="description"
-            type="text"
-            value={this.state.description}
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          Topic:
-          <input
-            name="slug"
-            type="text"
-            value={this.state.slug}
-            onChange={this.handleChange}
-          />
-        </label>
-
-        <input type="submit" value="create topic" />
-      </form>
+      <NewTopicForm
+        slug={this.state.slug}
+        description={this.state.description}
+        handleSubmit={this.handleSubmit}
+        handleChange={this.handleChange}
+      />
     );
   }
 }

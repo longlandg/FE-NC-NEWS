@@ -74,3 +74,11 @@ export const postTopic = newtopic => {
     newtopic
   );
 };
+
+export const fetchAllTopics = async () => {
+  const { data, status } = await Axios.get(
+    `https://longlandncknews.herokuapp.com/api/topics`
+  );
+
+  return data.topics;
+};

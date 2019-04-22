@@ -1,29 +1,24 @@
 // import Axios from "axios";
+import { postTopic } from "../Functions/apis";
+import { navigate } from "@reach/router";
+
+// export const handleSubmit = event => {
+//   event.preventDefault();
+//   console.log("hello");
+//   console.log(event.target);
+//   console.log(this.props);
+
+export const handleChange = event => {
+  console.log(event.target.name);
+  let name = event.target.name;
+  this.setState({ [name]: event.target.value });
+};
 
 export const handleSubmit = event => {
   event.preventDefault();
-  console.log("hello");
-  console.log(event.target);
-  console.log(this.props);
-  //   console.log(userName);
-  //   console.log(event.target.value);
-  // this.props.userLoginFunc(this.state.userName);
+  const newTopic = this.state;
 
-  // this.setState({ ugserName: this.state.userName });
-
-  // const checkForUser = this.state.AllUsers.filter((user) => {
-  //   return user.username === this.state.userName;
-  // });
-
-  // if (checkForUser.length === 1) {
-  //   // SaveState(this.props.userName, this.props.loggedIn);
-  //   SaveState(this.state.userName, true);
-  //   navigate(`/users/${this.state.userName}`);
-  // } else {
-  //   navigate(`/login`);
-  // }
+  postTopic(newTopic).then(res => {
+    navigate(`/article/createquery/${this.state.slug}`);
+  });
 };
-// handleChange = event => {
-//   return event.target.value;
-// };
-// export default { handleSubmit, handleUserNameChange };
