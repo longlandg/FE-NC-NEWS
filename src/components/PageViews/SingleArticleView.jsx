@@ -24,14 +24,18 @@ class SingleArticleView extends Component {
 
   render() {
     return (
-      <div>
+      <div className="SingleArticleView">
         {this.state.individualArticle && this.state.allComments && (
-          <div className="temp">
-            <SingleArticleCard
-              individualArticle={this.state.individualArticle}
-            />
-            <AllCommentsCard allComments={this.state.allComments} />
-          </div>
+          <>
+            <div className="SingleArticleCard">
+              <SingleArticleCard
+                individualArticle={this.state.individualArticle}
+              />
+            </div>
+            <div className="AllCommentsCard">
+              <AllCommentsCard allComments={this.state.allComments} />
+            </div>
+          </>
         )}
       </div>
     );
