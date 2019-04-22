@@ -7,6 +7,7 @@ const NewTopicForm = props => {
         <label>
           Description:
           <input
+            required
             name="description"
             type="text"
             value={props.description}
@@ -16,6 +17,7 @@ const NewTopicForm = props => {
         <label>
           Topic:
           <input
+            required
             name="slug"
             type="text"
             value={props.slug}

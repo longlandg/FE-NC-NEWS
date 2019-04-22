@@ -7,7 +7,8 @@ class CreateTopicView extends Component {
   state = {
     slug: "",
     description: "",
-    allTopicsSlugs: ""
+    allTopicsSlugs: "",
+    topicChecker: null
   };
   handleChange = event => {
     let name = event.target.name;
@@ -16,32 +17,45 @@ class CreateTopicView extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const newTopic = this.state;
-
-    postTopic(newTopic).then(res => {
-      navigate(`/article/createquery/${this.state.slug}`);
+    let topicChecker = this.state.allTopicsSlugs.filter(slug => {
+      return slug === this.state.slug;
     });
+    if (topicChecker.length === 0) {
+      const newTopic = {
+        slug: this.state.slug,
+        description: this.state.description
+      };
+      postTopic(newTopic).then(res => {
+        navigate(`/article/createquery/${this.state.slug}`);
+      });
+      this.setState({ topicChecker: null });
+    } else this.setState({ topicChecker: topicChecker.length });
   };
 
   componentDidMount = () => {
     fetchAllTopics().then(topics => {
       const slugArray = [];
       topics.forEach(topic => {
-        slugArray.push(topics.slug);
+        slugArray.push(topic.slug);
         console.log(slugArray);
       });
       this.setState({ allTopicsSlugs: slugArray });
     });
   };
 
+  componentDidUpdate = () => {};
+
   render() {
     return (
-      <NewTopicForm
-        slug={this.state.slug}
-        description={this.state.description}
-        handleSubmit={this.handleSubmit}
-        handleChange={this.handleChange}
-      />
+      <div>
+        <NewTopicForm
+          slug={this.state.slug}
+          description={this.state.description}
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+        />
+        {this.state.topicChecker && <p>this topic already exists </p>}
+      </div>
     );
   }
 }
