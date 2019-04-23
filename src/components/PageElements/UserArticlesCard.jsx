@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { navigate } from "@reach/router";
 import { Link } from "@reach/router";
 
+import { deleteArticle } from "../Functions/apis";
+
 const UserArticlesCard = props => {
   return (
     <div className="UserArticlesCard">
@@ -24,9 +26,18 @@ const UserArticlesCard = props => {
                     <p className="articledetails">{topic} </p>
                     <p className="articledetails">Date Posted: {created_at}</p>
                     <p className="articledetails">
-                      Number of Comments: {comment_count}{" "}
+                      Number of Comments: {comment_count}
                     </p>
                     <p className="articledetails">Votes: {votes}</p>
+                    <button
+                      name={article_id}
+                      className="deletebutton btn btn-warning btn-sm"
+                      type="button"
+                      disabled={props.userArticles.author !== props.userName}
+                      onClick={props.clickHandler}
+                    >
+                      delete article
+                    </button>
                   </Link>
                 </li>
               );

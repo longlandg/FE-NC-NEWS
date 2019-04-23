@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
 
-import { fetchUserInfo, fetchUserArticles } from "../Functions/apis";
+import {
+  fetchUserInfo,
+  fetchUserArticles,
+  deleteArticle
+} from "../Functions/apis";
 
 import UserInfoCard from "../PageElements/UserInfoCard";
 import UserArticlesCard from "../PageElements/UserArticlesCard";
@@ -21,7 +25,7 @@ class UserPageView extends Component {
     });
   };
 
-  componentDidUpdate = () => {};
+  // componentDidUpdate = () => {};
 
   render() {
     return (
@@ -38,11 +42,23 @@ class UserPageView extends Component {
             <UserArticlesCard
               userArticles={this.state.userArticles}
               userComments={this.state.userComments}
+              clickHandler={this.clickHandler}
             />
           </div>
         )}
       </div>
     );
   }
+
+  clickHandler = event => {
+    const article_id = event.target.name;
+    deleteArticle(article_id).then(res => {
+      let filteredarticles = this.state.userArticles.filter(
+        articles => articles.article_id !== article_id
+      );
+
+      this.setState({ userArticles: filteredarticles });
+    });
+  };
 }
 export default UserPageView;
