@@ -56,7 +56,13 @@ class App extends Component {
             <PostArticleView
               loggedIn={this.state.loggedIn}
               userName={this.state.userName}
-              path="/articles/postarticle/"
+              path="/article/postarticle"
+            />
+
+            <PostArticleView
+              loggedIn={this.state.loggedIn}
+              userName={this.state.userName}
+              path="/article/postarticle/:newTopic"
             />
             <QueryNewArticleView
               loggedIn={this.state.loggedIn}

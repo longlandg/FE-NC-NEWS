@@ -8,8 +8,8 @@ const QueryNewArticleView = props => {
       <h4 className="topicquery">
         Congratulations you have created the following topic: {props.newTopic}
       </h4>
-      {/* <h4>{console.log(this.state.slug)}</h4> */}
-      <Link to={`/articles/postarticle`}>
+
+      <Link to={`/article/postarticle/${props.newTopic}`}>
         <p className="topicquery">
           Would you like to write a new article for this topic?
         </p>

@@ -20,7 +20,7 @@ const NavBar = props => {
             <Link to={`/topics/createtopic`}>
               <button className="newTopicButton">create new topic</button>
             </Link>
-            <Link to={`/articles/postarticle`}>
+            <Link to={`/article/postarticle `}>
               <button className="newArticleButton">write new article</button>
             </Link>
           </>
