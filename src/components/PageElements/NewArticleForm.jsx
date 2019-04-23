@@ -47,7 +47,7 @@ const NewArticleForm = props => {
         <button className="btn btn-info btn-block" type="submit">
           Send
         </button>
-        {props.TopicDoesExist && (
+        {!props.TopicDoesExist && (
           <p>
             This topic doesnot exist you need to{" "}
             <Link to={`/topics/createtopic`}>

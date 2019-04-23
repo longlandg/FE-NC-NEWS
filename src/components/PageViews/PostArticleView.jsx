@@ -31,6 +31,7 @@ class PostArticleView extends Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           newTopic={this.props.newTopic}
+          TopicDoesExist={this.state.TopicDoesExist}
         />
       </div>
     );
