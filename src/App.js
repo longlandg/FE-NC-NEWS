@@ -10,6 +10,7 @@ import HomePageView from "./components/PageViews/HomePageView";
 import SingleArticleView from "./components/PageViews/SingleArticleView";
 import CreateTopicView from "./components/PageViews/CreateTopicView";
 import PostArticleView from "./components/PageViews/PostArticleView";
+import QueryNewArticleView from "./components/PageViews/QueryNewArticleView";
 
 import "./App.css";
 
@@ -56,6 +57,12 @@ class App extends Component {
               loggedIn={this.state.loggedIn}
               userName={this.state.userName}
               path="/articles/postarticle/"
+            />
+            <QueryNewArticleView
+              loggedIn={this.state.loggedIn}
+              slug={this.state.slug}
+              userName={this.state.userName}
+              path="/article/createquery/:newTopic"
             />
           </Router>
         </div>

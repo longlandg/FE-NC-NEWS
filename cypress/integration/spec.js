@@ -6,7 +6,7 @@ describe("My First Test", function() {
 
 describe("visiting page works", () => {
   it("Visits NC-NEWS", () => {
-    cy.request("/");
+    cy.visit("");
   });
 });
 

@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import { navigate } from "@reach/router";
 import { postTopic, fetchAllTopics } from "../Functions/apis";
 import NewTopicForm from "../PageElements/NewTopicForm";
+import AllTopicsButtons from "../PageElements/AllTopicsButtons";
 
 class CreateTopicView extends Component {
   state = {
     slug: "",
     description: "",
-    allTopicsSlugs: "",
+    allTopicsSlugs: null,
     topicChecker: null
   };
   handleChange = event => {
@@ -55,6 +56,9 @@ class CreateTopicView extends Component {
           handleChange={this.handleChange}
         />
         {this.state.topicChecker && <p>this topic already exists </p>}
+        {this.state.allTopicsSlugs && (
+          <AllTopicsButtons allTopicsSlugs={this.state.allTopicsSlugs} />
+        )}
       </div>
     );
   }

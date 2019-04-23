@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { navigate } from "@reach/router";
 import { Link } from "@reach/router";
 
-const UserInfoCard = props => {
+const UserArticlesCard = props => {
   return (
     <div className="UserArticlesCard">
       {props.userArticles && (
@@ -38,4 +38,4 @@ const UserInfoCard = props => {
   );
 };
 
-export default UserInfoCard;
+export default UserArticlesCard;
