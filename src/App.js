@@ -11,6 +11,7 @@ import SingleArticleView from "./components/PageViews/SingleArticleView";
 import CreateTopicView from "./components/PageViews/CreateTopicView";
 import PostArticleView from "./components/PageViews/PostArticleView";
 import QueryNewArticleView from "./components/PageViews/QueryNewArticleView";
+import PostCommentView from "./components/PageViews/PostCommentView";
 
 import "./App.css";
 
@@ -37,7 +38,11 @@ class App extends Component {
               path="/users/:username"
               userName={this.state.userName}
             />
-            <HomePageView path="/" userName={this.state.userName} />
+            <HomePageView
+              loggedIn={this.state.loggedIn}
+              userName={this.state.userName}
+              path="/"
+            />
             {/* <SingleArticleView
             loggedIn={this.state.loggedIn}
             userName={this.state.userName}
@@ -63,6 +68,12 @@ class App extends Component {
               loggedIn={this.state.loggedIn}
               userName={this.state.userName}
               path="/article/postarticle/:newTopic"
+            />
+            <PostCommentView
+              loggedIn={this.state.loggedIn}
+              article_id={this.state.article_id}
+              userName={this.state.userName}
+              path="/articles/:article_id/postcomment"
             />
             <QueryNewArticleView
               loggedIn={this.state.loggedIn}

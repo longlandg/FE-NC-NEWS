@@ -14,6 +14,9 @@ class HomePageView extends Component {
   };
 
   render() {
+    console.log(this.props.loggedIn);
+    console.log(this.props.userName);
+
     return (
       <div className="HomeView">
         <div className="SortBySelector">
@@ -23,7 +26,10 @@ class HomePageView extends Component {
           />
         </div>
         {this.state.allArticles && (
-          <AllArticles allArticles={this.state.allArticles} />
+          <AllArticles
+            allArticles={this.state.allArticles}
+            loggedIn={this.props.loggedIn}
+          />
         )}
       </div>
     );

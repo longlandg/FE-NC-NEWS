@@ -95,3 +95,11 @@ export const deleteArticle = article_id => {
     `https://longlandncknews.herokuapp.com/api/articles/${article_id}`
   );
 };
+
+export const postComment = (newcomment, article_id) => {
+  // console.log("post", newcomment.author);
+  return Axios.post(
+    `https://longlandncknews.herokuapp.com/api/articles/${article_id}/comments`,
+    newcomment
+  );
+};

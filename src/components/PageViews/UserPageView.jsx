@@ -13,8 +13,7 @@ import UserArticlesCard from "../PageElements/UserArticlesCard";
 class UserPageView extends Component {
   state = {
     userInfo: null,
-    userArticles: null,
-    userComments: null
+    userArticles: null
   };
   componentDidMount = () => {
     Promise.all([
@@ -25,7 +24,7 @@ class UserPageView extends Component {
     });
   };
 
-  // componentDidUpdate = () => {};
+  componentDidUpdate = () => {};
 
   render() {
     return (
@@ -33,7 +32,6 @@ class UserPageView extends Component {
         {this.state.userInfo && (
           <UserInfoCard
             userArticles={this.state.userArticles}
-            userComments={this.state.userComments}
             userInfo={this.state.userInfo}
           />
         )}

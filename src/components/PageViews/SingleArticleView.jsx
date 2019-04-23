@@ -21,7 +21,6 @@ class SingleArticleView extends Component {
   };
 
   componentDidUpdate() {}
-
   render() {
     return (
       <div className="SingleArticleView">
@@ -30,6 +29,7 @@ class SingleArticleView extends Component {
             <div className="SingleArticleCard">
               <SingleArticleCard
                 individualArticle={this.state.individualArticle}
+                loggedIn={this.props.loggedIn}
               />
             </div>
             <div className="AllCommentsCard">
