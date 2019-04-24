@@ -39,6 +39,8 @@ class SingleArticleView extends Component {
                 allComments={this.state.allComments}
                 userName={this.props.userName}
                 clickHandler={this.clickHandler}
+                loggedIn={this.props.loggedIn}
+                individualArticle={this.state.individualArticle}
               />
             </div>
           </>
