@@ -29,16 +29,16 @@ const UserArticlesCard = props => {
                       Number of Comments: {comment_count}
                     </p>
                     <p className="articledetails">Votes: {votes}</p>
-                    <button
-                      name={article_id}
-                      className="deletebutton btn btn-warning btn-sm"
-                      type="button"
-                      disabled={props.userArticles.author !== props.userName}
-                      onClick={props.clickHandler}
-                    >
-                      delete article
-                    </button>
                   </Link>
+                  <button
+                    name={article_id}
+                    className="deletebutton btn btn-warning btn-sm"
+                    type="button"
+                    disabled={props.userArticles.author !== props.userName}
+                    onClick={props.clickHandler}
+                  >
+                    delete article
+                  </button>
                 </li>
               );
             })}

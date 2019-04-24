@@ -15,7 +15,6 @@ const Chart = props => {
       negativeArticles.push(article);
     }
   });
-  console.log(props.userArticles[0]);
 
   const data = {
     labels: ["positve articles", "even articles", "negativeArticles"],

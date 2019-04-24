@@ -5,7 +5,6 @@ import { Link } from "@reach/router";
 import { deleteComment } from "../Functions/apis";
 
 const AllCommentsCard = props => {
-  console.log(props);
   return (
     <div>
       <ul>

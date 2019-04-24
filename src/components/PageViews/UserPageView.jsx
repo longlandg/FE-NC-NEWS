@@ -49,13 +49,21 @@ class UserPageView extends Component {
   }
 
   clickHandler = event => {
+    console.log("1st line of click handler", this.state.userArticles);
     const article_id = event.target.name;
     deleteArticle(article_id).then(res => {
       let filteredarticles = this.state.userArticles.filter(
-        articles => articles.article_id !== article_id
+        article =>
+          // console.log(
+          //   "2st line of click handler",
+          //   article.article_id,
+          //   +article_id
+          // )
+          article.article_id !== +article_id
       );
 
       this.setState({ userArticles: filteredarticles });
+      console.log(this.state.userArticles);
     });
   };
 }
