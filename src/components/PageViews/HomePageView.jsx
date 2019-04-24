@@ -79,19 +79,19 @@ class HomePageView extends Component {
     }
   };
 
-  homeFilterReset = event => {
-    event.preventDefault();
-    if (event.target.value !== this.state.sortBy) {
-      this.setState({ sortBy: event.target.value });
-    }
-  };
+  // homeFilterReset = event => {
+  //   event.preventDefault();
+  //   if (event.target.value !== this.state.sortBy) {
+  //     this.setState({ sortBy: event.target.value });
+  //   }
+  // };
 
-  homeFilterReset = event => {
-    event.preventDefault();
-    if (event.target.value !== this.state.sortBy) {
-      this.setState({ sortBy: event.target.value });
-    }
-  };
+  // homeFilterReset = event => {
+  //   event.preventDefault();
+  //   if (event.target.value !== this.state.sortBy) {
+  //     this.setState({ sortBy: event.target.value });
+  //   }
+  // };
 
   componentDidUpdate = (prevProps, prevState, snapshot) => {
     let filterBy = "";

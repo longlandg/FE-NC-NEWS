@@ -29,6 +29,14 @@ const SingleArticleCard = props => {
               post comment
             </button>
           </Link>
+          <Link to={`/${props.individualArticle.topic}`}>
+            <button
+              className="articlesbutton btn btn-info btn-sm"
+              type="button"
+            >
+              similar articles
+            </button>
+          </Link>
         </div>
       )}
     </div>
