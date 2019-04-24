@@ -52,20 +52,17 @@ class SingleArticleView extends Component {
     ]).then(([individualArticle, allComments]) => {
       this.setState({ individualArticle, allComments });
     });
-    console.log(localStorage);
   };
 
   clickHandler = event => {
-    console.log(event.target.name);
     const comments_id = event.target.name;
     deleteComment(comments_id).then(res => {
       let filteredcomments = this.state.allComments.filter(
-        comment => comment.comments_id !== comments_id
+        comment => comment.comments_id !== +comments_id
       );
-
-      this.setState({ allComments: filteredcomments }, () => {
-        console.log(this.state);
-      });
+      console.log(+comments_id);
+      console.log(filteredcomments);
+      this.setState({ allComments: filteredcomments }, () => {});
     });
   };
 }
