@@ -16,8 +16,7 @@ class SingleArticleView extends Component {
   state = {
     individualArticle: null,
     allComments: null,
-    voteChange: 0,
-    CommentVoteChange: 0
+    voteChange: 0
   };
 
   componentDidUpdate() {}
@@ -31,6 +30,8 @@ class SingleArticleView extends Component {
               <SingleArticleCard
                 individualArticle={this.state.individualArticle}
                 loggedIn={this.props.loggedIn}
+                voteChange={this.state.voteChange}
+                handleVoteClick={this.handleVoteClick}
               />
             </div>
             <div className="AllCommentsCard">
@@ -63,6 +64,15 @@ class SingleArticleView extends Component {
       console.log(+comments_id);
       console.log(filteredcomments);
       this.setState({ allComments: filteredcomments }, () => {});
+    });
+  };
+
+  handleVoteClick = numberOfVotes => {
+    updateArticleVotes(numberOfVotes, this.props.article_id);
+    this.setState(prevState => {
+      return {
+        voteChange: prevState.voteChange + numberOfVotes
+      };
     });
   };
 }

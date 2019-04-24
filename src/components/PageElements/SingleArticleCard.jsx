@@ -3,6 +3,8 @@ import { navigate } from "@reach/router";
 import { Link } from "@reach/router";
 
 const SingleArticleCard = props => {
+  console.log(props.individualArticle.votes);
+  console.log(props.voteChange);
   return (
     <div>
       {props.individualArticle && (
@@ -37,6 +39,24 @@ const SingleArticleCard = props => {
               similar articles
             </button>
           </Link>
+          <div className="votebutton">
+            <button
+              disabled={!props.loggedIn}
+              type="button"
+              className="btn btn-success btn-sm"
+              onClick={() => this.handleVoteClick(1)}
+            >
+              vote up
+            </button>
+            <button
+              disabled={!props.loggedIn}
+              type="button"
+              className="btn btn-danger btn-sm"
+              onClick={() => this.handleVoteClick(-1)}
+            >
+              vote down
+            </button>
+          </div>
         </div>
       )}
     </div>

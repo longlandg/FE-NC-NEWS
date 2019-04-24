@@ -13,7 +13,8 @@ import UserArticlesCard from "../PageElements/UserArticlesCard";
 class UserPageView extends Component {
   state = {
     userInfo: null,
-    userArticles: null
+    userArticles: null,
+    voteChange: 0
   };
   componentDidMount = () => {
     Promise.all([
@@ -33,6 +34,7 @@ class UserPageView extends Component {
           <UserInfoCard
             userArticles={this.state.userArticles}
             userInfo={this.state.userInfo}
+            voteChange={this.state.voteChange}
           />
         )}
         {this.state.userInfo && (
@@ -53,13 +55,7 @@ class UserPageView extends Component {
     const article_id = event.target.name;
     deleteArticle(article_id).then(res => {
       let filteredarticles = this.state.userArticles.filter(
-        article =>
-          // console.log(
-          //   "2st line of click handler",
-          //   article.article_id,
-          //   +article_id
-          // )
-          article.article_id !== +article_id
+        article => article.article_id !== +article_id
       );
 
       this.setState({ userArticles: filteredarticles });
