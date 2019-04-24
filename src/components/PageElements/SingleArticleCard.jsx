@@ -41,18 +41,18 @@ const SingleArticleCard = props => {
           </Link>
           <div className="votebutton">
             <button
-              disabled={!props.loggedIn}
+              disabled={!props.loggedIn || props.voteChange > 0}
               type="button"
               className="btn btn-success btn-sm"
-              onClick={() => this.handleVoteClick(1)}
+              onClick={() => props.handleVoteClick(1)}
             >
               vote up
             </button>
             <button
-              disabled={!props.loggedIn}
+              disabled={!props.loggedIn || props.voteChange < 0}
               type="button"
               className="btn btn-danger btn-sm"
-              onClick={() => this.handleVoteClick(-1)}
+              onClick={() => props.handleVoteClick(-1)}
             >
               vote down
             </button>

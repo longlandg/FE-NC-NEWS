@@ -70,6 +70,7 @@ class SingleArticleView extends Component {
   handleVoteClick = numberOfVotes => {
     updateArticleVotes(numberOfVotes, this.props.article_id);
     this.setState(prevState => {
+      console.log(this.state.voteChange);
       return {
         voteChange: prevState.voteChange + numberOfVotes
       };

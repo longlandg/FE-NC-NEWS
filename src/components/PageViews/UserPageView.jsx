@@ -13,8 +13,7 @@ import UserArticlesCard from "../PageElements/UserArticlesCard";
 class UserPageView extends Component {
   state = {
     userInfo: null,
-    userArticles: null,
-    voteChange: 0
+    userArticles: null
   };
   componentDidMount = () => {
     Promise.all([
@@ -34,7 +33,6 @@ class UserPageView extends Component {
           <UserInfoCard
             userArticles={this.state.userArticles}
             userInfo={this.state.userInfo}
-            voteChange={this.state.voteChange}
           />
         )}
         {this.state.userInfo && (
