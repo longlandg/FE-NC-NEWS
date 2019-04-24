@@ -8,9 +8,9 @@ export const fetchAllUsers = async () => {
   return data.users;
 };
 
-export const fetchAllArticles = async (filterBy, topic, sortBy) => {
+export const fetchAllArticles = async (filterBy, sortBy) => {
   const { data, status } = await Axios.get(
-    `https://longlandncknews.herokuapp.com/api/articles?${filterBy}${sortBy}${topic}`
+    `https://longlandncknews.herokuapp.com/api/articles?${filterBy}${sortBy}`
   );
   return data.articles;
 };

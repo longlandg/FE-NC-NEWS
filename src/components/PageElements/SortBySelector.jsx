@@ -1,6 +1,7 @@
 import React from "react";
 
 const SortBySelector = props => {
+  console.log(props);
   return (
     <select
       defaultValue="placeholder"

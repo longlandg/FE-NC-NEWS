@@ -3,8 +3,6 @@ import React, { Component } from "react";
 import { Link } from "@reach/router";
 
 const AllTopicsButtons = props => {
-  console.log(props);
-  console.log(props.allTopicsSlugs);
   return (
     <>
       {props.allTopicsSlugs && (
@@ -12,8 +10,8 @@ const AllTopicsButtons = props => {
           {/* <button>{props.allTopicsSlugs[0]}</button> */}
           {props.allTopicsSlugs.map(topic => {
             return (
-              <Link to={"/"}>
-                <button className="topicButton" key={topic} type="button">
+              <Link to={`/${topic}`} key={topic}>
+                <button className="topicButton" type="button">
                   {topic}
                 </button>
               </Link>
