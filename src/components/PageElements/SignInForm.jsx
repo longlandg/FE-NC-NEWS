@@ -22,7 +22,6 @@ class SignInForm extends Component {
           <button type="submit" class="btn btn-primary">
             Submit
           </button>
-          {/* <input type="submit" value="login" /> */}
         </form>
       </div>
     );
