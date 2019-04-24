@@ -73,25 +73,65 @@
 .NavBar {
   position: sticky;
   grid-area: middle;
+  display: flex;
   background-color: #6c757d;
   justify-content: space-between;
+  align-items: center;
   display: flex;
-  margin-top: 0px;
+  margin-top: 6px;
   margin-bottom: 0px;
+  height: 40px;
 }
 .RightHandSideNavBar {
   display: flex;
+  vertical-align: middle;
 }
 
 .HomeButton {
   display: flex;
+  border-right: solid 1px whitesmoke;
+}
+
+.UserPage {
+  display: flex;
+  border-left: solid 1px whitesmoke;
+}
+
+.newTopicButton {
+  display: flex;
+  border-left: solid 1px whitesmoke;
+}
+
+.newArticleButton {
+  display: flex;
+  border-left: solid 1px whitesmoke;
+}
+
+.LogOut {
+  display: flex;
+  border-left: solid 1px whitesmoke;
+}
+
+.LogIn {
+  display: flex;
+  border-left: solid 1px whitesmoke;
 }
 
 .SignInPage {
+  display: flex;
+  height: 80px;
+  justify-content: center;
+
+  align-items: center;
   grid-area: bottom;
-  background-color: blue;
+  background-color: white;
 }
 
+.SignInForm {
+  align-items: baseline;
+  display: flex;
+  height: 40px;
+}
 .HomeView {
   grid-area: bottom;
   display: grid;

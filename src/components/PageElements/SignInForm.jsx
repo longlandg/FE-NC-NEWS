@@ -7,18 +7,22 @@ class SignInForm extends Component {
   };
   render() {
     return (
-      <div className="SignInForm">
-        <form onSubmit={this.handleSubmit}>
+      <div className="SignInForm form-group">
+        <form for="exampleInputEmail1" onSubmit={this.handleSubmit}>
           <label>
-            UserName:
             <input
+              className="form-control"
+              placeholder="Enter username"
               id="SignInForm"
               type="text"
               value={this.state.inputBoxText}
               onChange={this.handleUserNameChange}
             />
           </label>
-          <input type="submit" value="login" />
+          <button type="submit" class="btn btn-primary">
+            Submit
+          </button>
+          {/* <input type="submit" value="login" /> */}
         </form>
       </div>
     );
@@ -44,3 +48,20 @@ class SignInForm extends Component {
 }
 
 export default SignInForm;
+
+// return (
+//   <div className="SignInForm">
+//     <form onSubmit={this.handleSubmit}>
+//       <label>
+//         UserName:
+//         <input
+//           id="SignInForm"
+//           type="text"
+//           value={this.state.inputBoxText}
+//           onChange={this.handleUserNameChange}
+//         />
+//       </label>
+//       <input type="submit" value="login" />
+//     </form>
+//   </div>
+// );

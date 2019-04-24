@@ -12,6 +12,7 @@ class SignInPageView extends Component {
     return (
       <div className="SignInPage">
         <SignInForm
+          className="SignInForm"
           allUsers={this.state.allUsers}
           userLoginFunc={this.props.userLoginFunc}
         />

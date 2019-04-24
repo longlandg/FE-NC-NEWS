@@ -5,7 +5,7 @@ const NavBar = props => {
   return (
     <nav className="NavBar">
       <Link to="/">
-        <button className="HomeButton" type="button">
+        <button className="HomeButton btn btn-secondary btn-sm" type="button">
           HOME
         </button>
       </Link>
@@ -13,21 +13,28 @@ const NavBar = props => {
         {props.userName && (
           <>
             <Link to={`/users/${props.userName}`}>
-              <button className="UserPage" type="button">
+              <button
+                className="UserPage btn btn-secondary btn-sm"
+                type="button"
+              >
                 USER PAGE
               </button>
             </Link>
             <Link to={`/topics/createtopic`}>
-              <button className="newTopicButton">create new topic</button>
+              <button className="newTopicButton btn btn-secondary btn-sm">
+                CREATE NEW TOPIC
+              </button>
             </Link>
             <Link to={`/article/postarticle `}>
-              <button className="newArticleButton">write new article</button>
+              <button className="newArticleButton btn btn-secondary btn-sm">
+                WRITE NEW ARTICLE
+              </button>
             </Link>
           </>
         )}
         {props.userName ? (
           <button
-            className="LogOut"
+            className="LogOut btn btn-secondary btn-sm"
             type="button"
             onClick={() => props.logOutFunc()}
           >
@@ -35,7 +42,7 @@ const NavBar = props => {
           </button>
         ) : (
           <Link to={"/signin"}>
-            <button className="LogIn" type="button">
+            <button className="LogIn btn btn-secondary btn-sm" type="button">
               LOG IN
             </button>
           </Link>
