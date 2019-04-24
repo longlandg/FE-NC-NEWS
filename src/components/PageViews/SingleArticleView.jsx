@@ -21,6 +21,7 @@ class SingleArticleView extends Component {
   };
 
   componentDidUpdate() {}
+
   render() {
     return (
       <div className="SingleArticleView">
@@ -33,7 +34,11 @@ class SingleArticleView extends Component {
               />
             </div>
             <div className="AllCommentsCard">
-              <AllCommentsCard allComments={this.state.allComments} />
+              <AllCommentsCard
+                allComments={this.state.allComments}
+                userName={this.props.userName}
+                clickHandler={this.clickHandler}
+              />
             </div>
           </>
         )}
@@ -48,6 +53,20 @@ class SingleArticleView extends Component {
       this.setState({ individualArticle, allComments });
     });
     console.log(localStorage);
+  };
+
+  clickHandler = event => {
+    console.log(event.target.name);
+    const comments_id = event.target.name;
+    deleteComment(comments_id).then(res => {
+      let filteredcomments = this.state.allComments.filter(
+        comment => comment.comments_id !== comments_id
+      );
+
+      this.setState({ allComments: filteredcomments }, () => {
+        console.log(this.state);
+      });
+    });
   };
 }
 

@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import { navigate } from "@reach/router";
 import { Link } from "@reach/router";
 
+import { deleteComment } from "../Functions/apis";
+
 const AllCommentsCard = props => {
+  console.log(props);
   return (
     <div>
       <ul>
@@ -21,6 +24,17 @@ const AllCommentsCard = props => {
                 total votes:
                 {/* {comment.votes + this.state.CommentVoteChange} */}
               </p>
+              <div className="deletebutton">
+                <button
+                  name={comments_id}
+                  className="deletebutton btn btn-warning btn-sm"
+                  type="button"
+                  disabled={props.userName !== author}
+                  onClick={props.clickHandler}
+                >
+                  delete comment
+                </button>
+              </div>
             </li>
           );
         })}
