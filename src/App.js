@@ -12,6 +12,7 @@ import CreateTopicView from "./components/PageViews/CreateTopicView";
 import PostArticleView from "./components/PageViews/PostArticleView";
 import QueryNewArticleView from "./components/PageViews/QueryNewArticleView";
 import PostCommentView from "./components/PageViews/PostCommentView";
+import Error from "./components/PageViews/Error";
 
 import "./App.css";
 
@@ -58,7 +59,8 @@ class App extends Component {
             <HomePageView
               loggedIn={this.state.loggedIn}
               userName={this.state.userName}
-              path="/:topic"
+              path="/topics/createtopic/:topic"
+              //  path="/:topic"
             />
             {/* <SingleArticleView
             loggedIn={this.state.loggedIn}
@@ -98,6 +100,8 @@ class App extends Component {
               userName={this.state.userName}
               path="/article/createquery/:newTopic"
             />
+            <Error path="/Error" default />
+            <Error path="/Error/:ErrorMsg" default />
           </Router>
         </div>
       </div>

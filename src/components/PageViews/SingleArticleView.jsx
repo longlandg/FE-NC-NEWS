@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import {
   deleteComment,
   updateArticleVotes,
@@ -52,9 +52,16 @@ class SingleArticleView extends Component {
     Promise.all([
       fetchSingleArticle(this.props.article_id),
       fetchAllCommentsByArticleId(this.props.article_id)
-    ]).then(([individualArticle, allComments]) => {
-      this.setState({ individualArticle, allComments });
-    });
+    ])
+      .then(([individualArticle, allComments]) => {
+        this.setState({ individualArticle, allComments });
+      })
+      .catch(err => {
+        let ErrorMsg = err.response.data.msg;
+        navigate(`/Error/${ErrorMsg}`);
+
+        // console.log("this is the catch error", err.response.data.msg);
+      });
   };
 
   clickHandler = event => {
@@ -63,8 +70,6 @@ class SingleArticleView extends Component {
       let filteredcomments = this.state.allComments.filter(
         comment => comment.comments_id !== +comments_id
       );
-      console.log(+comments_id);
-      console.log(filteredcomments);
       this.setState({ allComments: filteredcomments }, () => {});
     });
   };

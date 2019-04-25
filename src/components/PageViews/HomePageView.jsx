@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { navigate } from "@reach/router";
 import { fetchAllArticles } from "../Functions/apis";
 
 import SortBySelector from "../PageElements/SortBySelector";
@@ -10,7 +10,8 @@ class HomePageView extends Component {
     allArticles: null,
     sortBy: "",
     filterBy: "",
-    topic: ""
+    topic: "",
+    noArticlesForTopic: false
   };
 
   render(props) {
@@ -32,6 +33,9 @@ class HomePageView extends Component {
             loggedIn={this.props.loggedIn}
           />
         )}
+        {this.state.noArticlesForTopic && (
+          <p>At the moment there are no articles for this topic</p>
+        )}
       </div>
     );
   }
@@ -43,13 +47,26 @@ class HomePageView extends Component {
       filterby = `topic=${this.props.topic}&&`;
     }
 
-    fetchAllArticles(filterby, this.state.sortBy).then(articles => {
-      this.setState({
-        allArticles: articles,
-        filterBy: `topic=${this.props.topic}&&`,
-        topic: this.props.topic
-      });
-    });
+    fetchAllArticles(filterby, this.state.sortBy)
+      .then(articles => {
+        this.setState({
+          allArticles: articles,
+          filterBy: `topic=${this.props.topic}&&`,
+          topic: this.props.topic
+        });
+      })
+      .catch(
+        err => {
+          if (err.response.status === 422) {
+            this.setState({ noArticlesForTopic: true });
+          } else if (err.response.status === 404) {
+            navigate(`/Error/${err.response.status}`);
+          }
+        }
+        // console.log("this is the catch error", err.response)
+        // this.setState({ Error: true })
+        // console.log("this is the catch error", err.response.data.msg)
+      );
   };
 
   // componentDidMount = () => {
@@ -104,9 +121,14 @@ class HomePageView extends Component {
       this.state.sortBy !== prevState.sortBy ||
       prevProps.path !== this.props.path
     ) {
-      fetchAllArticles(filterBy, this.state.sortBy).then(articles => {
-        this.setState({ allArticles: articles });
-      });
+      fetchAllArticles(filterBy, this.state.sortBy)
+        .then(articles => {
+          this.setState({ allArticles: articles });
+        })
+        .catch(
+          err => this.setState({ Error: true })
+          // console.log("this is the catch error", err.response.data.msg)
+        );
     }
   };
 }

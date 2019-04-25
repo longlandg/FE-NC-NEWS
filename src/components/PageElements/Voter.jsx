@@ -16,7 +16,7 @@ class Voter extends Component {
   render() {
     return (
       <div>
-        <p Name="totalVotes" className="tinytextblack">
+        <p name="totalVotes" className="tinytextblack">
           total votes:
           {this.props.votes + this.state.voteChange}
         </p>

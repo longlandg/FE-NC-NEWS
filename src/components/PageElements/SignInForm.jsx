@@ -3,12 +3,13 @@ import { navigate } from "@reach/router";
 
 class SignInForm extends Component {
   state = {
-    inputBoxText: ""
+    inputBoxText: "",
+    userNameExists: true
   };
   render() {
     return (
       <div className="SignInForm form-group">
-        <form for="exampleInputEmail1" onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <label>
             <input
               className="form-control"
@@ -19,9 +20,18 @@ class SignInForm extends Component {
               onChange={this.handleUserNameChange}
             />
           </label>
-          <button type="submit" class="btn btn-primary">
-            Submit
+          <button type="submit" className="btn btn-primary">
+            LOG IN
           </button>
+          <p>
+            Please log in as one of the following example users "cooljmessy",
+            "grumpy19 or "jessjelly"
+          </p>
+          {!this.state.userNameExists && (
+            <h3>
+              This username does not exist please log in with a valid username
+            </h3>
+          )}
         </form>
       </div>
     );
@@ -39,28 +49,13 @@ class SignInForm extends Component {
 
     if (checkForUser.length === 1) {
       this.props.userLoginFunc(this.state.inputBoxText);
+      this.setState({ userNameExists: true });
       navigate(`/users/${this.state.inputBoxText}`);
     } else {
-      navigate(`/signin`);
+      this.setState({ userNameExists: false });
+      // navigate(`/signin`);
     }
   };
 }
 
 export default SignInForm;
-
-// return (
-//   <div className="SignInForm">
-//     <form onSubmit={this.handleSubmit}>
-//       <label>
-//         UserName:
-//         <input
-//           id="SignInForm"
-//           type="text"
-//           value={this.state.inputBoxText}
-//           onChange={this.handleUserNameChange}
-//         />
-//       </label>
-//       <input type="submit" value="login" />
-//     </form>
-//   </div>
-// );

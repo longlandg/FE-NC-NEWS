@@ -10,7 +10,7 @@ const AllTopicsButtons = props => {
           {/* <button>{props.allTopicsSlugs[0]}</button> */}
           {props.allTopicsSlugs.map(topic => {
             return (
-              <Link to={`/${topic}`} key={topic}>
+              <Link to={`/topics/createtopic/${topic}`} key={topic}>
                 <button
                   className="topicButton  btn btn-secondary btn-sm"
                   type="button"
