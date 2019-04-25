@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
-import { fetchAllArticles } from "../Functions/apis";
+import { fetchAllArticles, fetchAllTopics } from "../Functions/apis";
 
 import SortBySelector from "../PageElements/SortBySelector";
 import AllArticles from "../PageElements/AllArticles";
@@ -20,7 +20,8 @@ class HomePageView extends Component {
 
     return (
       <div className="HomeView">
-        {!this.state.allArticles && <h1>LOADING...</h1>}
+        {!this.state.allArticles ||
+          (this.state.noArticlesForTopic && <h1>LOADING...</h1>)}
         <div className="SortBySelector">
           <SortBySelector
             allArticles={this.state.allArticles}
@@ -56,18 +57,24 @@ class HomePageView extends Component {
           topic: this.props.topic
         });
       })
-      .catch(
-        err => {
-          if (err.response.status === 422) {
-            this.setState({ noArticlesForTopic: true });
-          } else if (err.response.status === 404) {
-            navigate(`/Error/${err.response.status}`);
+      .catch(err => {
+        fetchAllTopics().then(
+          topics => {
+            const existingTopic = topics.filter(topic => {
+              return topic.slug === this.props.topic;
+            });
+
+            if (err.response.status === 422 && existingTopic.length === 1) {
+              this.setState({ noArticlesForTopic: true });
+            } else if (existingTopic.length !== 1) {
+              navigate(`/Error/${err.response.status}`);
+            }
           }
-        }
-        // console.log("this is the catch error", err.response)
-        // this.setState({ Error: true })
-        // console.log("this is the catch error", err.response.data.msg)
-      );
+          // console.log("this is the catch error", err.response)
+          // this.setState({ Error: true })
+          // console.log("this is the catch error", err.response.data.msg)
+        );
+      });
   };
 
   // componentDidMount = () => {
