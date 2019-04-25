@@ -49,6 +49,7 @@ class CreateTopicView extends Component {
   render() {
     return (
       <div>
+        {!this.state.allTopicsSlugs && <h1>LOADING...</h1>}
         <NewTopicForm
           slug={this.state.slug}
           description={this.state.description}

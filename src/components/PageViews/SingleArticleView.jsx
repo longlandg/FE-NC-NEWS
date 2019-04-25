@@ -24,6 +24,7 @@ class SingleArticleView extends Component {
   render() {
     return (
       <div className="SingleArticleView">
+        {!this.state.individualArticle && <h1>LOADING...</h1>}
         {this.state.individualArticle && this.state.allComments && (
           <>
             <div className="SingleArticleCard">

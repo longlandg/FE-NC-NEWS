@@ -59,7 +59,7 @@ class App extends Component {
             <HomePageView
               loggedIn={this.state.loggedIn}
               userName={this.state.userName}
-              path="/topics/createtopic/:topic"
+              path="/topics/articles/:topic"
               //  path="/:topic"
             />
             {/* <SingleArticleView

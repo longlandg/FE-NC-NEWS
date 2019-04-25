@@ -27,6 +27,7 @@ class PostArticleView extends Component {
     console.log(this.state.topic);
     return (
       <div className="articleinform">
+        {!this.state.AllTopics && <h1>LOADING...</h1>}
         <NewArticleForm
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}

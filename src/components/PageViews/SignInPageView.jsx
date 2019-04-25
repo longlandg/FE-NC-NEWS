@@ -11,6 +11,7 @@ class SignInPageView extends Component {
   render() {
     return (
       <div className="SignInPage">
+        {!this.state.allUsers && <h1>LOADING...</h1>}
         <SignInForm
           className="SignInForm"
           allUsers={this.state.allUsers}

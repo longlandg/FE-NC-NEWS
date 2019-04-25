@@ -33,6 +33,7 @@ class UserPageView extends Component {
   render() {
     return (
       <div className="UserPageView">
+        {!this.state.userInfo && <h1>LOADING...</h1>}
         {this.state.userInfo && (
           <UserInfoCard
             userArticles={this.state.userArticles}

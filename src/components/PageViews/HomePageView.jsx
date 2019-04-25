@@ -20,6 +20,7 @@ class HomePageView extends Component {
 
     return (
       <div className="HomeView">
+        {!this.state.allArticles && <h1>LOADING...</h1>}
         <div className="SortBySelector">
           <SortBySelector
             allArticles={this.state.allArticles}
