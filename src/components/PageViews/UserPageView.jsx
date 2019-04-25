@@ -16,12 +16,16 @@ class UserPageView extends Component {
     userArticles: null
   };
   componentDidMount = () => {
+    console.log("before promise", this.props.userName);
     Promise.all([
-      fetchUserInfo(this.props.userName),
-      fetchUserArticles(this.props.userName)
+      fetchUserInfo(localStorage.userName),
+      fetchUserArticles(localStorage.userName)
+      // fetchUserInfo(this.props.userName),
+      // fetchUserArticles(this.props.userName)
     ]).then(([userInfo, userArticles]) => {
       this.setState({ userInfo, userArticles });
     });
+    console.log("after promise", this.props.userName);
   };
 
   componentDidUpdate = () => {};

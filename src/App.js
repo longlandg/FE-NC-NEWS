@@ -20,6 +20,17 @@ class App extends Component {
     userName: null,
     loggedIn: false
   };
+
+  componentDidMount() {
+    console.log(localStorage);
+    console.log(localStorage.userName);
+    {
+      localStorage.userName && this.userLoginFunc(localStorage.userName);
+    }
+    //   const recentlyLoggedInUser = localStorage.getItem("userName");
+    //   this.setState({ userName: recentlyLoggedInUser });
+    //   this.userLoginFunc(this.state.userName);
+  }
   render() {
     return (
       <div className="App">
@@ -37,6 +48,7 @@ class App extends Component {
             <UserPageView
               path="/users/:username"
               userName={this.state.userName}
+              loggedIn={this.state.loggedIn}
             />
             <HomePageView
               loggedIn={this.state.loggedIn}
@@ -93,8 +105,10 @@ class App extends Component {
   }
   userLoginFunc = loggedUserName => {
     this.setState({ userName: loggedUserName, loggedIn: true });
+    localStorage.setItem("userName", loggedUserName);
   };
   logOutFunc = () => {
+    localStorage.removeItem("userName");
     this.setState({ userName: null, loggedIn: false });
     navigate(`/`);
   };
