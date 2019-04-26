@@ -191,53 +191,58 @@ ul {
   grid-area: bottom;
   display: grid;
   object-fit: contain;
-  grid-template: 1fr / 1fr;
+  grid-template: 420px 1fr / 1fr;
   grid-template-areas:
     "topUserPageView"
     "bottomUserPageView";
-  grid-template-rows: 400px 1fr;
+  /* grid-template-rows: 400px 1fr; */
 }
 .UserArticles {
   background-color: white;
-  border: solid;
 
   grid-area: bottomUserPageView;
 }
 .UserInfoCard {
-  background-color: blue;
-  border: solid;
+  background-color: white;
+
   grid-area: topUserPageView;
   display: grid;
-  grid-template: 1fr 1fr/1fr 1fr;
+  grid-template: 300px 1fr/1fr 1fr;
   grid-template-areas:
     "topleftUserInfoCard toprightUserInfoCard"
     "bottomleftUserInfoCard bottomrightUserInfoCard";
-  grid-template-rows: 300px 1fr;
+  /* grid-template-rows: 300px 1fr; */
+  border-bottom: solid #6c757d 5px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 .imageContainer {
+  align-content: center;
   grid-area: topleftUserInfoCard;
+  border-bottom: dotted #6c757d 2px;
 }
+
 .UserAvatar {
   margin: 0px;
-
-  border: dotted;
+  padding: 10px;
   object-fit: contain;
   max-width: 100%;
   max-height: 100%;
 }
-.Chart {
+.Chartcard {
   grid-area: toprightUserInfoCard;
   margin: 0px;
-  border: dotted;
+  border-bottom: dotted #6c757d 2px;
+  border-left: dotted #6c757d 2px;
 }
 .UserPersonalDetails {
   margin: 0px;
-  border: dotted;
+  align-content: center;
   grid-area: bottomleftUserInfoCard;
 }
 .UserStats {
   margin: 0px;
-  border: dotted;
+  border-left: dotted #6c757d 2px;
   grid-area: bottomrightUserInfoCard;
 }
 
@@ -337,6 +342,10 @@ h5 {
 
   text-align: left;
   margin: 1px 3px 1px 0px;
+}
+
+.UserName {
+  margin-bottom: 0px;
 }
 .tinytextblackcentral {
   font-size: 10pt;

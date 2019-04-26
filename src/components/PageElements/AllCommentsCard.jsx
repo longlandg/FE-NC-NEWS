@@ -15,7 +15,6 @@ class AllCommentsCard extends Component {
                 <p className="tinytext">Date Posted: {created_at}</p>
                 <p className="tinytext">Author: {author}</p>
                 <p className="tinytext"> Comment Id: {comments_id}</p>
-                <p className="tinytext">hello{comments_id}</p>
 
                 <Voter
                   comments_id={comment.comments_id}

@@ -4,24 +4,54 @@ import { Link } from "@reach/router";
 import Chart from "./Chart";
 
 const UserInfoCard = props => {
-  console.log(props.userArticles);
+  const positiveArticles = [];
+  const negativeArticles = [];
+  const evenArticles = [];
+
+  props.userArticles.forEach(article => {
+    if (article.votes === 0) {
+      evenArticles.push(article);
+    } else if (article.votes > 0) {
+      positiveArticles.push(article);
+    } else if (article.votes < 0) {
+      negativeArticles.push(article);
+    }
+  });
   return (
     <div className="UserInfoCard">
       <div className="imageContainer">
-        <img className="UserAvatar" src={props.userInfo.avatar_url} />
+        <img
+          className="UserAvatar"
+          src={props.userInfo.avatar_url}
+          img
+          alt
+          src="http://artlung.com/smorgasborg/friendster-profile-default.jpg"
+        />
       </div>
       <div className="UserPersonalDetails">
-        <h1 className="UserUserName">{props.userInfo.username}</h1>
+        <p className="tinytext ">Username:</p>
+        <h4 className="UserUserName">{props.userInfo.username}</h4>
+        <p className="tinytext ">Name:</p>
         <p className="UserName">{props.userInfo.name}</p>
       </div>
       {props.userArticles && (
-        <Chart
-          userName="Chart"
-          userArticles={props.userArticles}
-          userComments={props.userComments}
-        />
+        <div className="Chartcard">
+          {" "}
+          <Chart
+            userArticles={props.userArticles}
+            userComments={props.userComments}
+            positiveArticles={positiveArticles.length}
+            negativeArticles={negativeArticles.length}
+            evenArticles={evenArticles.length}
+          />
+        </div>
       )}
-      <p className="UserStats">userstates</p>
+      <p className="UserStats">
+        You have written {props.userArticles.length} articles, of which{" "}
+        {positiveArticles.length} have a positive number of votes,{" "}
+        {negativeArticles.length} have a negative number of votes and{" "}
+        {evenArticles.length} have a vote total of zero.
+      </p>
     </div>
   );
 };
