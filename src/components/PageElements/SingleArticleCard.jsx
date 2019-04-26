@@ -31,7 +31,8 @@ const SingleArticleCard = props => {
               post comment
             </button>
           </Link>
-          <Link to={`/${props.individualArticle.topic}`}>
+
+          <Link to={`/topics/articles/${props.individualArticle.topic}`}>
             <button
               className="articlesbutton btn btn-info btn-sm"
               type="button"
