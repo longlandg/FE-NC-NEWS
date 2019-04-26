@@ -27,7 +27,7 @@ class SingleArticleView extends Component {
         {!this.state.individualArticle && <h1>LOADING...</h1>}
         {this.state.individualArticle && this.state.allComments && (
           <>
-            <div className="SingleArticleCard">
+            <div className="SingleArticleCardclass">
               <SingleArticleCard
                 individualArticle={this.state.individualArticle}
                 loggedIn={this.props.loggedIn}

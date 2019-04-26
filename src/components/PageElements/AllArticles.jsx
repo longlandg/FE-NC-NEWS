@@ -33,7 +33,7 @@ class AllArticles extends Component {
                   <p className="tinytext">
                     Number of Comments: {comment_count}{" "}
                   </p>
-                  <p className="tinytextblack">Votes: {votes}</p>
+                  <p className="tinytextblackcentral">Votes: {votes}</p>
                 </Link>
               </li>
             );
