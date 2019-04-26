@@ -1,6 +1,5 @@
-import React, { Component } from "react";
-import { navigate } from "@reach/router";
-import { Link } from "@reach/router";
+import React from "react";
+
 import Chart from "./Chart";
 
 const UserInfoCard = props => {
@@ -23,9 +22,8 @@ const UserInfoCard = props => {
         <img
           className="UserAvatar"
           src={props.userInfo.avatar_url}
-          img
-          alt
-          src="http://artlung.com/smorgasborg/friendster-profile-default.jpg"
+          img="true"
+          alt="http://artlung.com/smorgasborg/friendster-profile-default.jpg"
         />
       </div>
       <div className="UserPersonalDetails">

@@ -53,7 +53,6 @@ class SignInForm extends Component {
       navigate(`/users/${this.state.inputBoxText}`);
     } else {
       this.setState({ userNameExists: false });
-      // navigate(`/signin`);
     }
   };
 }

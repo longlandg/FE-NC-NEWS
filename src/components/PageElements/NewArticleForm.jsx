@@ -1,7 +1,6 @@
-import React, { Component } from "react";
-import { Link, navigate } from "@reach/router";
+import React from "react";
+import { Link } from "@reach/router";
 const NewArticleForm = props => {
-  console.log(props);
   return (
     <div className="NewArticleForm">
       <form

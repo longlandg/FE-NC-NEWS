@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { navigate } from "@reach/router";
+
 import Voter from "./Voter";
 
 class AllCommentsCard extends Component {

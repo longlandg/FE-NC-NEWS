@@ -1,8 +1,6 @@
-import React, { Component } from "react";
-import { navigate } from "@reach/router";
-import { Link } from "@reach/router";
+import React from "react";
 
-import { deleteArticle } from "../Functions/apis";
+import { Link } from "@reach/router";
 
 const UserArticlesCard = props => {
   return (

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, navigate } from "@reach/router";
+import { navigate } from "@reach/router";
 import { postArticle, fetchAllTopics } from "../Functions/apis";
 
 import NewArticleForm from "../PageElements/NewArticleForm";
@@ -15,16 +15,12 @@ class PostArticleView extends Component {
   componentDidMount = () => {
     fetchAllTopics().then(topics => {
       this.setState({ AllTopics: topics });
-      {
-        this.props.newTopic && this.setState({ topic: this.props.newTopic });
-      }
-      console.log("hello im the topics", topics);
-      console.log(this.props);
+
+      this.props.newTopic && this.setState({ topic: this.props.newTopic });
     });
   };
 
   render() {
-    console.log(this.state.topic);
     return (
       <div className="articleinform">
         {!this.state.AllTopics && <h1>LOADING...</h1>}
@@ -38,10 +34,8 @@ class PostArticleView extends Component {
     );
   }
   handleChange = event => {
-    console.log(event.target.name);
     let name = event.target.name;
     this.setState({ [name]: event.target.value });
-    console.log(this.state);
   };
 
   handleSubmit = event => {
@@ -58,7 +52,6 @@ class PostArticleView extends Component {
 
     if (check.length === 0) {
       this.setState({ TopicDoesExist: false });
-      console.log("need a topic");
     } else {
       postArticle(newArticle).then(res => {
         this.setState({ TopicDoesExist: true });

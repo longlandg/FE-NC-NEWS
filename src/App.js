@@ -23,14 +23,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    console.log(localStorage);
-    console.log(localStorage.userName);
-    {
-      localStorage.userName && this.userLoginFunc(localStorage.userName);
-    }
-    //   const recentlyLoggedInUser = localStorage.getItem("userName");
-    //   this.setState({ userName: recentlyLoggedInUser });
-    //   this.userLoginFunc(this.state.userName);
+    localStorage.userName && this.userLoginFunc(localStorage.userName);
   }
   render() {
     return (

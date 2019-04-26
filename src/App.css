@@ -3,7 +3,7 @@
   align-self: center;
   align-content: center;
   margin: 0px;
-  width: 900px;
+  width: 100hw;
   height: 100vh;
   font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
 }
@@ -133,7 +133,7 @@
 .HomeView {
   grid-area: bottom;
   display: grid;
-  grid-template: 50px 100% /1fr;
+  grid-template: 50px 1fr /1fr;
   grid-template-areas:
     "topHomeView "
     "bottomHomeView";
@@ -157,6 +157,7 @@
   font-weight: 900;
   font-size: 10pt;
   width: 290px;
+
   font-display: #6c757d;
   list-style-type: none;
   background-color: white;
@@ -191,7 +192,7 @@ ul {
   grid-area: bottom;
   display: grid;
   object-fit: contain;
-  grid-template: 420px 1fr / 1fr;
+  grid-template: 520px 1fr;
   grid-template-areas:
     "topUserPageView"
     "bottomUserPageView";
@@ -207,7 +208,7 @@ ul {
 
   grid-area: topUserPageView;
   display: grid;
-  grid-template: 300px 1fr/1fr 1fr;
+  grid-template: 420px 1fr/1fr 1fr;
   grid-template-areas:
     "topleftUserInfoCard toprightUserInfoCard"
     "bottomleftUserInfoCard bottomrightUserInfoCard";
@@ -231,6 +232,7 @@ ul {
 }
 .Chartcard {
   grid-area: toprightUserInfoCard;
+  object-fit: contain;
   margin: 0px;
   border-bottom: dotted #6c757d 2px;
   border-left: dotted #6c757d 2px;
@@ -296,6 +298,13 @@ ul {
 .AllCommentsCard {
   grid-area: rightSinglaArticleView;
 }
+.AllArticles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+}
 
 .deletebutton {
   float: right;
@@ -353,4 +362,110 @@ h5 {
 
   text-align: center;
   margin: 1px 3px 1px 0px;
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 800px) {
+  .SingleArticleView {
+    grid-area: bottom;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "topSingleArticleView "
+      "bottomSingleArticleView ";
+  }
+
+  .SingleArticleCard {
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+    font-weight: 900;
+    font-size: 10pt;
+
+    font-display: #6c757d;
+    list-style-type: none;
+    background-color: white;
+
+    padding: 10px;
+    margin: 5px;
+    box-shadow: 5px 5px #888888;
+  }
+
+  .AllCommentsCard {
+    grid-area: bottomSingleArticleView;
+  }
+
+  .UserPageView {
+    grid-area: bottom;
+    display: grid;
+    object-fit: contain;
+    grid-row: 1fr 1fr / 1fr;
+    grid-template-areas:
+      "1"
+      "2";
+  }
+  .UserInfoCard {
+    background-color: white;
+
+    grid-area: 1;
+    display: grid;
+    grid-template: 200px 100px 1fr 100px/ 1fr;
+    grid-template-areas: "topleftUserInfoCard ";
+    /* grid-template-rows: 300px 1fr; */
+    border-bottom: solid #6c757d 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .Chartcard {
+    grid-area: 3;
+    margin: 0px;
+    border-bottom: dotted #6c757d 2px;
+    border-left: dotted #6c757d 2px;
+  }
+  .imageContainer {
+    align-content: center;
+    grid-area: 1;
+    border-bottom: dotted #6c757d 2px;
+  }
+
+  .UserPersonalDetails {
+    margin: 0px;
+    align-content: center;
+    grid-area: 2;
+  }
+  .UserStats {
+    margin: 0px;
+    border-left: dotted #6c757d 2px;
+    grid-area: 4;
+  }
+  .UserArticles {
+    background-color: white;
+
+    grid-area: 5;
+  }
+  .AllArticles {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+  }
+
+  .individualArticleCards {
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+    font-weight: 900;
+    font-size: 10pt;
+    width: 100%;
+
+    font-display: #6c757d;
+    list-style-type: none;
+    background-color: white;
+    /* border-top: 1px solid #6c757d;
+    border-bottom: 1px solid #6c757d;
+    border-left: 1px solid #6c757d;
+    border-right: 1px solid #6c757d; */
+    /* border-radius: 5px; */
+    /* border-style: 5px/ 1px/ 5px/ 1px solid#6c757d; */
+    padding: 10px;
+    margin: 5px;
+    box-shadow: 5px 5px #888888;
+  }
 }

@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import { Link, navigate } from "@reach/router";
+import React from "react";
 
 const NewCommentForm = props => {
   return (

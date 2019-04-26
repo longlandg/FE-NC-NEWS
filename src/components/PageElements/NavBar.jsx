@@ -1,4 +1,4 @@
-import React, { components } from "react";
+import React from "react";
 import { Link } from "@reach/router";
 
 const NavBar = props => {

@@ -1,10 +1,9 @@
 import React, { Component } from "react";
+import { navigate } from "@reach/router";
 
-import { Link, navigate } from "@reach/router";
 import {
   deleteComment,
   updateArticleVotes,
-  updateCommentsVotes,
   fetchSingleArticle,
   fetchAllCommentsByArticleId
 } from "../Functions/apis";
@@ -60,13 +59,10 @@ class SingleArticleView extends Component {
       .catch(err => {
         let ErrorMsg = err.response.data.msg;
         navigate(`/Error/${ErrorMsg}`);
-
-        // console.log("this is the catch error", err.response.data.msg);
       });
   };
 
   clickHandler = event => {
-    console.log(event.target.name);
     const comments_id = event.target.name;
     deleteComment(comments_id).then(res => {
       let filteredcomments = this.state.allComments.filter(
@@ -79,7 +75,6 @@ class SingleArticleView extends Component {
   handleVoteClick = numberOfVotes => {
     updateArticleVotes(numberOfVotes, this.props.article_id);
     this.setState(prevState => {
-      console.log(this.state.voteChange);
       return {
         voteChange: prevState.voteChange + numberOfVotes
       };

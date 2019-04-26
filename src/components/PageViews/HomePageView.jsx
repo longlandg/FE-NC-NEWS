@@ -15,9 +15,6 @@ class HomePageView extends Component {
   };
 
   render(props) {
-    console.log(this.state.filterBy);
-    console.log(this.state.topic);
-
     return (
       <div className="HomeView">
         {!this.state.allArticles ||
@@ -58,43 +55,19 @@ class HomePageView extends Component {
         });
       })
       .catch(err => {
-        fetchAllTopics().then(
-          topics => {
-            const existingTopic = topics.filter(topic => {
-              return topic.slug === this.props.topic;
-            });
+        fetchAllTopics().then(topics => {
+          const existingTopic = topics.filter(topic => {
+            return topic.slug === this.props.topic;
+          });
 
-            if (err.response.status === 422 && existingTopic.length === 1) {
-              this.setState({ noArticlesForTopic: true });
-            } else if (existingTopic.length !== 1) {
-              navigate(`/Error/${err.response.status}`);
-            }
+          if (err.response.status === 422 && existingTopic.length === 1) {
+            this.setState({ noArticlesForTopic: true });
+          } else if (existingTopic.length !== 1) {
+            navigate(`/Error/${err.response.status}`);
           }
-          // console.log("this is the catch error", err.response)
-          // this.setState({ Error: true })
-          // console.log("this is the catch error", err.response.data.msg)
-        );
+        });
       });
   };
-
-  // componentDidMount = () => {
-  //   console.log("i mounted again");
-  //   this.setState({ filterBy: `topic=${this.props.topic}&&` });
-  //   let filterby = "";
-  //   if (this.props.topic === undefined) {
-  //     // this.setState({ filterBy: "" });
-  //   } else if (this.props.topic) {
-  //     filterby = `topic=${this.props.topic}&&`;
-  //   }
-
-  //   fetchAllArticles(filterby, this.state.sortBy).then(articles => {
-  //     this.setState({
-  //       allArticles: articles,
-  //       filterBy: `topic=${this.props.topic}&&`,
-  //       topic: this.props.topic
-  //     });
-  //   });
-  // };
 
   changeSorting = event => {
     event.preventDefault();
@@ -103,20 +76,6 @@ class HomePageView extends Component {
       this.setState({ sortBy: event.target.value });
     }
   };
-
-  // homeFilterReset = event => {
-  //   event.preventDefault();
-  //   if (event.target.value !== this.state.sortBy) {
-  //     this.setState({ sortBy: event.target.value });
-  //   }
-  // };
-
-  // homeFilterReset = event => {
-  //   event.preventDefault();
-  //   if (event.target.value !== this.state.sortBy) {
-  //     this.setState({ sortBy: event.target.value });
-  //   }
-  // };
 
   componentDidUpdate = (prevProps, prevState, snapshot) => {
     let filterBy = "";
@@ -133,10 +92,7 @@ class HomePageView extends Component {
         .then(articles => {
           this.setState({ allArticles: articles });
         })
-        .catch(
-          err => this.setState({ Error: true })
-          // console.log("this is the catch error", err.response.data.msg)
-        );
+        .catch(err => this.setState({ Error: true }));
     }
   };
 }

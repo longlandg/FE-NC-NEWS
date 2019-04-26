@@ -38,7 +38,6 @@ class CreateTopicView extends Component {
       const slugArray = [];
       topics.forEach(topic => {
         slugArray.push(topic.slug);
-        console.log(slugArray);
       });
       this.setState({ allTopicsSlugs: slugArray });
     });

@@ -1,22 +1,22 @@
 import Axios from "axios";
 
 export const fetchAllUsers = async () => {
-  const { data, status } = await Axios.get(
+  const { data } = await Axios.get(
     `https://longlandncknews.herokuapp.com/api/users`
   );
-  // console.log("hello im in the function", data.users);
+
   return data.users;
 };
 
 export const fetchAllArticles = async (filterBy, sortBy) => {
-  const { data, status } = await Axios.get(
+  const { data } = await Axios.get(
     `https://longlandncknews.herokuapp.com/api/articles?${filterBy}${sortBy}`
   );
   return data.articles;
 };
 
 export const fetchSingleArticle = async article_id => {
-  const { data, status } = await Axios.get(
+  const { data } = await Axios.get(
     `https://longlandncknews.herokuapp.com/api/articles/${article_id}`
   );
 
@@ -24,18 +24,18 @@ export const fetchSingleArticle = async article_id => {
 };
 
 export const fetchUserInfo = async username => {
-  const { data, status } = await Axios.get(
+  const { data } = await Axios.get(
     `https://longlandncknews.herokuapp.com/api/users/${username}`
   );
-  // console.log("hello im in the fetchUserInfo function", data.user);
+
   return data.user;
 };
 
 export const fetchUserArticles = async username => {
-  const { data, status } = await Axios.get(
+  const { data } = await Axios.get(
     `https://longlandncknews.herokuapp.com/api/articles?author=${username}`
   );
-  // console.log("hello im in the userArticles function", data.articles);
+
   return data.articles;
 };
 
@@ -60,7 +60,7 @@ export const updateCommentsVotes = (direction, comments_id) => {
 };
 
 export const fetchAllCommentsByArticleId = async article_id => {
-  const { data, status } = await Axios.get(
+  const { data } = await Axios.get(
     `https://longlandncknews.herokuapp.com/api/articles/${article_id}/comments`
   );
 
@@ -68,7 +68,6 @@ export const fetchAllCommentsByArticleId = async article_id => {
 };
 
 export const postTopic = newtopic => {
-  // console.log(newtopic);
   return Axios.post(
     `https://longlandncknews.herokuapp.com/api/topics`,
     newtopic
@@ -76,7 +75,7 @@ export const postTopic = newtopic => {
 };
 
 export const fetchAllTopics = async () => {
-  const { data, status } = await Axios.get(
+  const { data } = await Axios.get(
     `https://longlandncknews.herokuapp.com/api/topics`
   );
 
@@ -97,7 +96,6 @@ export const deleteArticle = article_id => {
 };
 
 export const postComment = (newcomment, article_id) => {
-  // console.log("post", newcomment.author);
   return Axios.post(
     `https://longlandncknews.herokuapp.com/api/articles/${article_id}/comments`,
     newcomment

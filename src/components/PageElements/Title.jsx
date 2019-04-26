@@ -1,4 +1,4 @@
-import React, { component } from "react";
+import React from "react";
 
 const Title = props => {
   return (
@@ -13,4 +13,3 @@ const Title = props => {
 };
 
 export default Title;
-// className="Title"

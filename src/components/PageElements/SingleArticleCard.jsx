@@ -1,10 +1,8 @@
-import React, { Component } from "react";
-import { navigate } from "@reach/router";
+import React from "react";
+
 import { Link } from "@reach/router";
 
 const SingleArticleCard = props => {
-  console.log(props.individualArticle.votes);
-  console.log(props.voteChange);
   return (
     <div>
       {props.individualArticle && (

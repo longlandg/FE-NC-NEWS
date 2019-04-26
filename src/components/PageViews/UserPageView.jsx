@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "@reach/router";
 
 import {
   fetchUserInfo,
@@ -16,16 +15,12 @@ class UserPageView extends Component {
     userArticles: null
   };
   componentDidMount = () => {
-    console.log("before promise", this.props.userName);
     Promise.all([
       fetchUserInfo(localStorage.userName),
       fetchUserArticles(localStorage.userName)
-      // fetchUserInfo(this.props.userName),
-      // fetchUserArticles(this.props.userName)
     ]).then(([userInfo, userArticles]) => {
       this.setState({ userInfo, userArticles });
     });
-    console.log("after promise", this.props.userName);
   };
 
   componentDidUpdate = () => {};
@@ -54,7 +49,6 @@ class UserPageView extends Component {
   }
 
   clickHandler = event => {
-    console.log("1st line of click handler", this.state.userArticles);
     const article_id = event.target.name;
     deleteArticle(article_id).then(res => {
       let filteredarticles = this.state.userArticles.filter(
@@ -62,7 +56,6 @@ class UserPageView extends Component {
       );
 
       this.setState({ userArticles: filteredarticles });
-      console.log(this.state.userArticles);
     });
   };
 }
