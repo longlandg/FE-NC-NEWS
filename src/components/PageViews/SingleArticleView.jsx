@@ -66,6 +66,7 @@ class SingleArticleView extends Component {
   };
 
   clickHandler = event => {
+    console.log(event.target.name);
     const comments_id = event.target.name;
     deleteComment(comments_id).then(res => {
       let filteredcomments = this.state.allComments.filter(

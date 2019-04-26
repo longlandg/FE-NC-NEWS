@@ -21,7 +21,7 @@ class Voter extends Component {
           {this.props.votes + this.state.voteChange}
         </p>
 
-        <div key="" className="deletebutton">
+        {/* <div key="" className="deletebutton">
           <button
             name={this.props.comments_id}
             className="deletebutton btn btn-warning btn-sm"
@@ -33,7 +33,7 @@ class Voter extends Component {
           >
             delete comment
           </button>
-        </div>
+        </div> */}
         <div name="voting" className="votebutton">
           <button
             disabled={!this.props.loggedIn || this.state.voteChange > 0}
