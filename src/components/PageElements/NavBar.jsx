@@ -44,7 +44,9 @@ const NavBar = props => {
           </button>
         ) : (
           <>
-            <p className="PreLogInNotice">234234234234234</p>
+            <p className="PreLogInNotice">
+              For more functionality please log in{" "}
+            </p>
             <Link to={"/signin"}>
               <button className="LogIn btn btn-secondary btn-sm" type="button">
                 LOG IN
