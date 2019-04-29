@@ -48,25 +48,54 @@ class CreateTopicView extends Component {
   render() {
     return (
       <div>
+        {!this.state.allTopicsSlugs && <h1>LOADING...</h1>}
+
+        <>
+          <p className="TopicWarnings">These are all the existing topics</p>
+          <AllTopicsButtons allTopicsSlugs={this.state.allTopicsSlugs} />
+        </>
+
         {this.props.userName ? (
           <div>
-            {!this.state.allTopicsSlugs && <h1>LOADING...</h1>}
-            <NewTopicForm
-              slug={this.state.slug}
-              description={this.state.description}
-              handleSubmit={this.handleSubmit}
-              handleChange={this.handleChange}
-            />
-            {this.state.topicChecker && <p>this topic already exists </p>}
             {this.state.allTopicsSlugs && (
-              <AllTopicsButtons allTopicsSlugs={this.state.allTopicsSlugs} />
+              <NewTopicForm
+                slug={this.state.slug}
+                description={this.state.description}
+                handleSubmit={this.handleSubmit}
+                handleChange={this.handleChange}
+              />
             )}
           </div>
         ) : (
-          <p>Please log in to create a topic</p>
+          <p className="TopicWarnings">Please log in to create a topic</p>
         )}
+        {this.state.topicChecker && <p>this topic already exists </p>}
       </div>
     );
   }
 }
+
 export default CreateTopicView;
+
+//
+//
+
+// <div>
+// {this.props.userName ? (
+//   <div>
+//     {this.state.topicChecker && <p>this topic already exists </p>}
+//     {this.state.allTopicsSlugs && (
+//       <AllTopicsButtons allTopicsSlugs={this.state.allTopicsSlugs} />
+//     )}
+//     {!this.state.allTopicsSlugs && <h1>LOADING...</h1>}
+//     <NewTopicForm
+//       slug={this.state.slug}
+//       description={this.state.description}
+//       handleSubmit={this.handleSubmit}
+//       handleChange={this.handleChange}
+//     />
+//   </div>
+// ) : (
+//   <p>Please log in to create a topic</p>
+// )}
+// </div>

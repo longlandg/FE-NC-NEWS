@@ -15,7 +15,7 @@
   font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
 
   display: grid;
-  grid-template: 1fr/1fr;
+  grid-template: 90px 40px/100%;
   grid-template-areas:
     "top"
     "middle";
@@ -49,6 +49,7 @@
   margin-top: 10px;
   margin-bottom: 0px;
   height: 86px;
+  width: 100%;
 }
 .TitleLoggedOut {
   grid-area: top;
@@ -82,7 +83,20 @@
   margin-bottom: 0px;
   height: 40px;
 }
+
+.PreLogInNotice {
+  margin: 0px;
+  display: flex;
+  text-align: center;
+  vertical-align: bottom;
+  line-height: 1;
+}
+
 .RightHandSideNavBar {
+  display: flex;
+  vertical-align: middle;
+}
+.LeftHandSideNavBar {
   display: flex;
   vertical-align: middle;
 }
@@ -99,7 +113,7 @@
 
 .newTopicButton {
   display: flex;
-  border-left: solid 1px whitesmoke;
+  border-right: solid 1px whitesmoke;
 }
 
 .newArticleButton {
@@ -208,7 +222,7 @@ ul {
 
   grid-area: topUserPageView;
   display: grid;
-  grid-template: 420px 1fr/1fr 1fr;
+  grid-template: 420px 1fr / 50% 50%;
   grid-template-areas:
     "topleftUserInfoCard toprightUserInfoCard"
     "bottomleftUserInfoCard bottomrightUserInfoCard";
@@ -362,6 +376,14 @@ h5 {
 
   text-align: center;
   margin: 1px 3px 1px 0px;
+}
+
+.TopicWarnings {
+  margin: 10px;
+}
+
+.NewTopicForm {
+  margin: 20px;
 }
 
 /* On screens that are 600px or less, set the background color to olive */

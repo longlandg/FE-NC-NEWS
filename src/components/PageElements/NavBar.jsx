@@ -3,12 +3,19 @@ import { Link } from "@reach/router";
 
 const NavBar = props => {
   return (
-    <nav className="NavBar">
-      <Link to="/">
-        <button className="HomeButton btn btn-secondary btn-sm" type="button">
-          HOME
-        </button>
-      </Link>
+    <nav className="NavBar" expand="lg">
+      <div className="LeftHandSideNavBar">
+        <Link to="/">
+          <button className="HomeButton btn btn-secondary btn-sm" type="button">
+            HOME
+          </button>
+        </Link>
+        <Link to={`/topics/createtopic`}>
+          <button className="newTopicButton btn btn-secondary btn-sm">
+            TOPICS
+          </button>
+        </Link>
+      </div>
       <div className="RightHandSideNavBar">
         {props.userName && (
           <>
@@ -17,17 +24,12 @@ const NavBar = props => {
                 className="UserPage btn btn-secondary btn-sm"
                 type="button"
               >
-                USER PAGE
-              </button>
-            </Link>
-            <Link to={`/topics/createtopic`}>
-              <button className="newTopicButton btn btn-secondary btn-sm">
-                CREATE NEW TOPIC
+                {props.userName.toUpperCase()}'S PAGE
               </button>
             </Link>
             <Link to={`/article/postarticle `}>
               <button className="newArticleButton btn btn-secondary btn-sm">
-                WRITE NEW ARTICLE
+                NEW ARTICLE
               </button>
             </Link>
           </>
@@ -41,11 +43,14 @@ const NavBar = props => {
             LOG OUT
           </button>
         ) : (
-          <Link to={"/signin"}>
-            <button className="LogIn btn btn-secondary btn-sm" type="button">
-              LOG IN
-            </button>
-          </Link>
+          <>
+            <p className="PreLogInNotice">234234234234234</p>
+            <Link to={"/signin"}>
+              <button className="LogIn btn btn-secondary btn-sm" type="button">
+                LOG IN
+              </button>
+            </Link>
+          </>
         )}
       </div>
     </nav>
