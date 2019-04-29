@@ -48,16 +48,22 @@ class CreateTopicView extends Component {
   render() {
     return (
       <div>
-        {!this.state.allTopicsSlugs && <h1>LOADING...</h1>}
-        <NewTopicForm
-          slug={this.state.slug}
-          description={this.state.description}
-          handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}
-        />
-        {this.state.topicChecker && <p>this topic already exists </p>}
-        {this.state.allTopicsSlugs && (
-          <AllTopicsButtons allTopicsSlugs={this.state.allTopicsSlugs} />
+        {this.props.userName ? (
+          <div>
+            {!this.state.allTopicsSlugs && <h1>LOADING...</h1>}
+            <NewTopicForm
+              slug={this.state.slug}
+              description={this.state.description}
+              handleSubmit={this.handleSubmit}
+              handleChange={this.handleChange}
+            />
+            {this.state.topicChecker && <p>this topic already exists </p>}
+            {this.state.allTopicsSlugs && (
+              <AllTopicsButtons allTopicsSlugs={this.state.allTopicsSlugs} />
+            )}
+          </div>
+        ) : (
+          <p>Please log in to create a topic</p>
         )}
       </div>
     );

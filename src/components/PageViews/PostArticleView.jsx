@@ -22,14 +22,20 @@ class PostArticleView extends Component {
 
   render() {
     return (
-      <div className="articleinform">
-        {!this.state.AllTopics && <h1>LOADING...</h1>}
-        <NewArticleForm
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          newTopic={this.props.newTopic}
-          TopicDoesExist={this.state.TopicDoesExist}
-        />
+      <div>
+        {this.props.userName ? (
+          <div className="articleinform">
+            {!this.state.AllTopics && <h1>LOADING...</h1>}
+            <NewArticleForm
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              newTopic={this.props.newTopic}
+              TopicDoesExist={this.state.TopicDoesExist}
+            />
+          </div>
+        ) : (
+          <p>Please log in to create an article</p>
+        )}
       </div>
     );
   }

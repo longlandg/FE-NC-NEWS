@@ -28,6 +28,7 @@ class HomePageView extends Component {
         </div>
         {this.state.allArticles && (
           <AllArticles
+            data-cy="AllArticles"
             allArticles={this.state.allArticles}
             loggedIn={this.props.loggedIn}
           />

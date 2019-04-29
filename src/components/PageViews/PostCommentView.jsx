@@ -27,12 +27,17 @@ class PostCommentView extends Component {
 
   render() {
     return (
-      <NewCommentForm
-        handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
-      />
+      <div>
+        {this.props.userName ? (
+          <NewCommentForm
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+          />
+        ) : (
+          <p>Please log in to create acomment</p>
+        )}
+      </div>
     );
   }
 }
-
 export default PostCommentView;
