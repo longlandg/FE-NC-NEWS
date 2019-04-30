@@ -6,7 +6,7 @@ import { navigate } from "@reach/router";
 
 import SignInPageView from "./components/PageViews/SignInPageView";
 import UserPageView from "./components/PageViews/UserPageView";
-import HomePageView from "./components/PageViews/HomePageView";
+import AllArticlesPageView from "./components/PageViews/AllArticlesPageView";
 import SingleArticleView from "./components/PageViews/SingleArticleView";
 import CreateTopicView from "./components/PageViews/CreateTopicView";
 import PostArticleView from "./components/PageViews/PostArticleView";
@@ -44,12 +44,12 @@ class App extends Component {
               userName={this.state.userName}
               loggedIn={this.state.loggedIn}
             />
-            <HomePageView
+            <AllArticlesPageView
               loggedIn={this.state.loggedIn}
               userName={this.state.userName}
               path="/"
             />
-            <HomePageView
+            <AllArticlesPageView
               loggedIn={this.state.loggedIn}
               userName={this.state.userName}
               path="/topics/articles/:topic"

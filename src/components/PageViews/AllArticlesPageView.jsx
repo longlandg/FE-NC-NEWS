@@ -5,7 +5,7 @@ import { fetchAllArticles, fetchAllTopics } from "../Functions/apis";
 import SortBySelector from "../PageElements/SortBySelector";
 import AllArticles from "../PageElements/AllArticles";
 
-class HomePageView extends Component {
+class AllArticlesPageView extends Component {
   state = {
     allArticles: null,
     sortBy: "",
@@ -98,4 +98,4 @@ class HomePageView extends Component {
   };
 }
 
-export default HomePageView;
+export default AllArticlesPageView;

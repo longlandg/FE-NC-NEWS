@@ -6,8 +6,11 @@ const NavBar = props => {
     <nav className="NavBar" expand="lg">
       <div className="LeftHandSideNavBar">
         <Link to="/">
-          <button className="HomeButton btn btn-secondary btn-sm" type="button">
-            HOME
+          <button
+            className="AllArticles btn btn-secondary btn-sm"
+            type="button"
+          >
+            ALL ARTICLES
           </button>
         </Link>
         <Link to={`/topics/createtopic`}>
