@@ -11,7 +11,7 @@ const SingleArticleCard = props => {
           <p className="articledetails">{props.individualArticle.author}</p>
           <p className="tinytext">
             {" "}
-            Posted:{props.individualArticle.created_at}
+            Posted:{Date(props.individualArticle.created_at)}
           </p>
           <p className="tinytext">Topic:{props.individualArticle.topic}</p>
           <p className="articledetails">{props.individualArticle.body}</p>
@@ -26,7 +26,7 @@ const SingleArticleCard = props => {
               className="postbutton btn btn-primary btn-sm"
               type="button"
             >
-              post comment
+              comment
             </button>
           </Link>
 

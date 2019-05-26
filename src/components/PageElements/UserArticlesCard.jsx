@@ -22,7 +22,9 @@ const UserArticlesCard = props => {
                   <Link to={`/articles/${article_id}`}>
                     <h4 className="articletitle">{title} </h4>
                     <p className="articledetails">{topic} </p>
-                    <p className="articledetails">Date Posted: {created_at}</p>
+                    <p className="articledetails">
+                      Date Posted: {Date(created_at)}
+                    </p>
                     <p className="articledetails">
                       Number of Comments: {comment_count}
                     </p>

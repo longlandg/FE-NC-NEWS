@@ -15,7 +15,7 @@ const NavBar = props => {
         </Link>
         <Link to={`/topics/createtopic`}>
           <button className="newTopicButton btn btn-secondary btn-sm">
-            TOPICS
+            TOPICS PAGE
           </button>
         </Link>
       </div>
